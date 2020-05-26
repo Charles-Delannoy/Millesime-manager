@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_142658) do
+ActiveRecord::Schema.define(version: 2020_05_26_144415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,14 +127,14 @@ ActiveRecord::Schema.define(version: 2020_05_26_142658) do
   create_table "wines", force: :cascade do |t|
     t.string "name"
     t.integer "millesime"
-    t.date "apogee_start"
-    t.date "apogee_end"
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "degree"
     t.bigint "castle_id"
     t.bigint "appelation_id"
+    t.integer "apogee_start"
+    t.integer "apogee_end"
     t.index ["appelation_id"], name: "index_wines_on_appelation_id"
     t.index ["castle_id"], name: "index_wines_on_castle_id"
   end

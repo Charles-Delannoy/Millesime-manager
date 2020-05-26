@@ -93,6 +93,8 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
         my_wine = Wine.new(name: bottle_name, millesime: millesime, apogee_start: apogee_start, apogee_end: apogee_end, color: color, degree: degre)
         my_wine.castle = my_castle
         my_wine.appelation = my_appelation
+        img = URI.open(img_url)
+        my_wine.photo.attach(io: img, filename: "#{bottle_name}.png", content_type: 'image/png')
         my_wine.save
         #CREATE THE WINE OBJECT
 
@@ -114,47 +116,34 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
 
         # noms et pourcentage des cepages
         i = 1
-        cepages = html_doc.search('.ns-Chart-legend li span')
-        cepages.each do |cepage|
-          if i%2 == 0
-            if cepage.text.split(':')[1].nil?
-              p cepage_percentage = (100 / cepages.length)
-              my_assemblage = Assemblage.new(percentage: cepage_percentage)
-              my_assemblage.cepage = my_cepage
-              my_assemblage.wine = my_wine
-              my_assemblage.save
-
-              p cepage_name = cepage.text
-              if Cepage.where(name: cepage_name).empty?
-                my_cepage = Cepage.new(name: cepage_name)
-                my_cepage.save
-              else
-                my_cepage = Cepage.where(name: cepage_name)[0]
-              end
-
-              p cepage_percentage = (100 / cepages.length)
-              my_assemblage = Assemblage.new(percentage: cepage_percentage)
-              my_assemblage.cepage = my_cepage
-              my_assemblage.wine = my_wine
-              my_assemblage.save
-            else
-              p cepage_percentage = cepage.text.split(':')[1].split('%')[0].strip.to_i
-              my_assemblage = Assemblage.new(percentage: cepage_percentage)
-              my_assemblage.cepage = my_cepage
-              my_assemblage.wine = my_wine
-              my_assemblage.save
+        cepages = html_doc.search('.ns-Chart-legend li')
+        nb_cepages = cepages.length
+        cepages_hash = {}
+        cepages.each do |cepage_array|
+          if cepage_array.search('span').length == 1
+            cepage_percentage = 100 / nb_cepages
+            cepage_array.search('span').each do |cepage|
+              cepages_hash[cepage.text] = cepage_percentage
             end
           else
-            p cepage_name = cepage.text
-            if Cepage.where(name: cepage_name).empty?
-              my_cepage = Cepage.new(name: cepage_name)
-              my_cepage.save
-            else
-              my_cepage = Cepage.where(name: cepage_name)[0]
-            end
+            cepage_name = cepage_array.text.strip.split(':')[0].strip
+            cepage_percentage = cepage_array.text.strip.split(':')[1].strip.split("%")[0].to_i
+            cepages_hash[cepage_name] = cepage_percentage
           end
-          i += 1
         end
+        cepages_hash.each do |cep, per|
+          if Cepage.where(name: cep).empty?
+            my_cepage = Cepage.new(name: cep)
+            my_cepage.save
+          else
+            my_cepage = Cepage.where(name: cep)[0]
+          end
+          my_assemblage = Assemblage.new(percentage: per)
+          my_assemblage.wine = my_wine
+          my_assemblage.cepage = my_cepage
+          my_assemblage.save
+        end
+
 
       end
       p "---------------------------"
