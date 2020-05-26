@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_125919) do
+ActiveRecord::Schema.define(version: 2020_05_26_130102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(version: 2020_05_26_125919) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "degree"
+    t.bigint "castle_id"
+    t.bigint "appelation_id"
+    t.index ["appelation_id"], name: "index_wines_on_appelation_id"
+    t.index ["castle_id"], name: "index_wines_on_castle_id"
   end
 
   add_foreign_key "appelations", "regions"
@@ -104,4 +109,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_125919) do
   add_foreign_key "bottles", "caves", column: "cave_id"
   add_foreign_key "bottles", "wines"
   add_foreign_key "caves", "users"
+  add_foreign_key "wines", "appelations"
+  add_foreign_key "wines", "castles"
 end
