@@ -4,7 +4,7 @@
   background: $primary-color;
   position: fixed;
   top: 0;
-  width: 340px;
+  width: 375px;
   z-index: 1;
 }
 
@@ -19,15 +19,12 @@
   border-radius: 50%;
 }
 
-.navbar-nav .active > .nav-link {
-  color: $white !important;
+.navbar-nav > .nav-link {
+  color: white !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: white;
-    &:hover{
-    color: #582630;
-  }
 }
 
 .application-title {
