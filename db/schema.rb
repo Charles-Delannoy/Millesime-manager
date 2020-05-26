@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_141503) do
+ActiveRecord::Schema.define(version: 2020_05_26_125919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2020_05_25_141503) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["region_id"], name: "index_appelations_on_region_id"
+  end
+
+  create_table "assemblages", force: :cascade do |t|
+    t.integer "percentage"
+    t.bigint "wine_id", null: false
+    t.bigint "cepage_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cepage_id"], name: "index_assemblages_on_cepage_id"
+    t.index ["wine_id"], name: "index_assemblages_on_wine_id"
   end
 
   create_table "bottles", force: :cascade do |t|
@@ -37,12 +47,24 @@ ActiveRecord::Schema.define(version: 2020_05_25_141503) do
     t.index ["wine_id"], name: "index_bottles_on_wine_id"
   end
 
+  create_table "castles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "caves", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_caves_on_user_id"
+  end
+
+  create_table "cepages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "regions", force: :cascade do |t|
@@ -77,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_05_25_141503) do
   end
 
   add_foreign_key "appelations", "regions"
+  add_foreign_key "assemblages", "cepages"
+  add_foreign_key "assemblages", "wines"
   add_foreign_key "bottles", "caves", column: "cave_id"
   add_foreign_key "bottles", "wines"
   add_foreign_key "caves", "users"
