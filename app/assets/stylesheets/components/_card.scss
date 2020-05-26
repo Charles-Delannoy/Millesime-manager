@@ -1,1 +1,27 @@
-_card.scss
+// Card - Cave Index
+
+.cave-card {
+  height: 120px;
+  background-color: $light-gray;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-cave img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-image {
+  width: 20%;
+}
+
+.card-info {
+  width: 60%;
+}
+
+.little-bottle {
+  width: 50px;
+}
