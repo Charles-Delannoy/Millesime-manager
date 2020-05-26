@@ -8,6 +8,23 @@
 require 'open-uri'
 require 'nokogiri'
 
+puts "Destroy assemblages"
+Assemblage.destroy_all
+puts "Destroy cepages"
+Cepage.destroy_all
+puts "Destroy pairings"
+Pairing.destroy_all
+puts "Destroy meals"
+Meal.destroy_all
+puts "Destroy wines"
+Wine.destroy_all
+puts "Destroy castles"
+Castle.destroy_all
+puts "Destroy appelations"
+Appelation.destroy_all
+puts "Destroy regions"
+Region.destroy_all
+
 base_url = "https://www.nicolas.com/fr/"
 base_html_doc = Nokogiri::HTML(open(base_url).read)
 base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
