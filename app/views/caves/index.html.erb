@@ -1,4 +1,6 @@
 <h1> <%= @caves.name %></h1>
 <% @caves.each do |cave| %>
+  <%= link_to "#" do %>
   <h3><%= cave.name %></h3>
+  <% end %>
 <% end %>
