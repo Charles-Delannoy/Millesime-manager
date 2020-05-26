@@ -1,4 +1,47 @@
-<h1> <%= @caves.name %></h1>
-<% @caves.each do |cave| %>
-  <h3><%= cave.name %></h3>
-<% end %>
+<div class="container-cave">
+
+  <h1><%= @caves.name %></h1>
+  <% @caves.each do |cave| %>
+    <div class="cave-card">
+      <%= image_tag "https://source.unsplash.com/400x300/?cellar-wine", alt: "personnal cave", class:"img-cave" %>
+      <div class="card-info">
+        <h3> <%= cave.name %> </h3>
+        <div class="card-element">
+          <div class="red-bottles-count">
+            <%= image_tag('red-bottle.svg', alt: "red wine bottle") %>
+            <p>Info 1 'bottle.wine.red.count'</p>
+          </div>
+          <div class="rose-bottles-count">
+            <%= image_tag('rose-bottle.svg', alt: "rose wine bottle") %>
+            <p>Info 1 'bottle.wine.rose.count'</p>
+          </div>
+          <div class="white-bottles-count">
+            <%= image_tag('white-bottle.svg', alt: "white wine bottle") %>
+            <p>Info 1 'bottle.wine.white.count</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<!-- if cave.bottle.wine.color.red > 0
+  <div class="red-bottles-count">
+    <%#= image_tag("red-bottle.svg"), alt: "red wine bottle" %>
+    <p>Info 1</p>
+  </div>
+end
+if cave.bottle.wine.color.rose > 0
+  <div class="rose-bottles-count">
+    <%#= image_tag("rose-bottle.svg"), alt: "rose wine bottle" %>
+    <p>Info 1</p>
+  </div>
+end
+if cave.bottle.wine.color.white > 0
+  <div class="white-bottles-count">
+    <%#= image_tag("white-bottle.svg"), alt: "white wine bottle" %>
+    <p>Info 1</p>
+  </div>
+end -->
+
