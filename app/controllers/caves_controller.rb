@@ -28,4 +28,3 @@ class CavesController < ApplicationController
     params.require(:cave).permit(:name)
   end
 end
-
