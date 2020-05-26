@@ -1,6 +1,7 @@
 class Wine < ApplicationRecord
   has_many :bottles
   has_many :assemblages
+  has_one_attached :photo
   # def set_apogee
   #   #Bordeaux
   #   bx_rouge_appelations = {'bordeaux' => [5, 6],
