@@ -3,21 +3,21 @@
   <h1><%= @caves.name %></h1>
   <% @caves.each do |cave| %>
     <div class="cave-card">
-        <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave" %>
+        <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
       <div class="card-info">
         <h3> <%= cave.name %> </h3>
         <div class="card-element">
           <div class="red-bottles-count">
             <%= image_tag('red-bottle.svg', alt: "red wine bottle", class:"little-bottle") %>
-            <p>Info 1 'bottle.wine.red.count'</p>
+            <p>Info 1</p>
           </div>
           <div class="rose-bottles-count">
             <%= image_tag('rose-bottle.svg', alt: "rose wine bottle", class:"little-bottle") %>
-            <p>Info 2 'bottle.wine.rose.count'</p>
+            <p>Info 2 </p>
           </div>
           <div class="white-bottles-count">
             <%= image_tag('white-bottle.svg', alt: "white wine bottle", class:"little-bottle") %>
-            <p>Info 3 'bottle.wine.white.count'</p>
+            <p>Info 3</p>
           </div>
         </div>
       </div>

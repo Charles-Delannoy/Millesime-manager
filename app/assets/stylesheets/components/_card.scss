@@ -1,27 +1,37 @@
 // Card - Cave Index
 
 .cave-card {
-  height: 120px;
+  height: 230px;
   background-color: $light-gray;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
 }
 
-.card-cave img {
-  height: 100px;
-  width: 100%;
+.card-img {
+  width: 35%;
+  height: 230px;
   object-fit: cover;
 }
 
-.card-image {
-  width: 20%;
+.card-info {
+  height: 230px;
+  h3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 }
 
-.card-info {
-  width: 60%;
+.card-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .little-bottle {
-  width: 50px;
+  height: 130px;
+  width: 100%;
+}
+.card-element p {
+  font-size: 1.2rem;
 }
