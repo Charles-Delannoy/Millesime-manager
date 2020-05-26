@@ -1,3 +1,58 @@
+// Card - Cave Index
+
+.cave-card {
+  height: 200px;
+  width: 95%;
+  background-color: $light-gray;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-info {
+  height: 230px;
+}
+
+.cave-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  h3 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 15px;
+  }
+}
+
+.card-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-left: 9px;
+}
+
+.little-bottle {
+  height: 100px;
+  width: 41%;
+  margin: 14px 15px 14px 10px;
+
+}
+.card-element p {
+  font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 15px;
+}
+
 // SHOW WINE
 
 .wine-show-card {
