@@ -2,7 +2,7 @@
 <div class="container-cave">
 
   <div class="current-cave-name">
-    <h1><%= @caves.name %></h1>
+    <h1><%= @caves.name %> <%= link_to '+', new_cafe_path %></h1>
   </div>
   <% @caves.each do |cave| %>
   <%= link_to cafe_path(cave) do %>
