@@ -1,11 +1,16 @@
 class CavesController < ApplicationController
 
   def index
-    @caves = Cave.all
+    @caves = policy_scope(Cave).where(user: current_user)
   end
 
   def new
     @cave = Cave.new
+  end
+
+  def show
+    @cave = Cave.find(params['id'])
+    authorize @cave
   end
 
   def create
