@@ -47,6 +47,6 @@ class CavesController < ApplicationController
   end
 
   def cave_params
-    params.require(:cave).permit(:name)
+    params.require(:cave).permit(:name, :photo)
   end
 end

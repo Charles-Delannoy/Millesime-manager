@@ -2,13 +2,17 @@
 <div class="container-cave">
 
   <div class="current-cave-name">
-    <h1> Mes caves <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cafe_path %></h1>
+    <h1> Mes caves <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cafe_path, id:"add-cave" %></h1>
   </div>
 
   <% @caves.each do |cave| %>
     <%= link_to cafe_path(cave) do %>
       <div class="cave-card">
-          <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
+        <% if @cave.photo.attached? %>
+          <%= cl_image_tag @cave.photo.key, crop: :fill, alt: "personnal cave", class: "card-cave-img"%>
+        <% else %>
+          <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
+        <% end %>
         <div class="card-info">
 
           <div class="cave-name">
@@ -39,6 +43,8 @@
   <% end %>
 
 </div>
+
+<%#= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
 
 <!-- if cave.bottle.wine.color.red > 0
   <div class="red-bottles-count">
