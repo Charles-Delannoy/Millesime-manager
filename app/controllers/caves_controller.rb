@@ -11,6 +11,7 @@ class CavesController < ApplicationController
 
   def show
     @cave = Cave.find(params['id'])
+    @bottles = Bottle.where(cave: @cave)
     authorize @cave
   end
 
