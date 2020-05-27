@@ -1,9 +1,9 @@
 
 <div class="container-cave">
-  <div class="current-cave-name">
+  <div class="cave-page-title">
     <h1> Mes caves </h1>
   </div>
-  <div class="cave-link">
+  <div class="create-cave-link">
     <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cave_path, id:"favicon-add-cave" %>
   </div>
 </div>
@@ -18,37 +18,37 @@
         <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
       <% end %>
 
-      <div class="card-info">
+      <div class="cave-card-info">
 
         <div class="cave-name">
           <h3> <%= cave.name %> </h3>
           <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cave_path(cave), id:"cave-favicon" %>
         </div>
 
-        <div class="card-element">
-          <div class="position-count">
+        <div class="cave-card-element">
+          <div class="cave-bottle-count">
             <div class="red-bottles">
-              <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"little-bottle") %>
+              <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"cave-card-little-bottle") %>
             </div>
-              <div class="count">
+              <div class="bottle-count">
                 <p>14</p>
               </div>
           </div>
 
-          <div class="position-count">
+          <div class="cave-bottle-count">
             <div class="rose-bottles-count">
-              <%= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"little-bottle") %>
+              <%= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"cave-card-little-bottle") %>
             </div>
-            <div class="count">
+            <div class="bottle-count">
               <p>6</p>
             </div>
           </div>
 
-          <div class="position-count">
+          <div class="cave-bottle-count">
             <div class="white-bottles-count">
-              <%= image_tag('white-bottle.png', alt: "white wine bottle", class:"little-bottle") %>
+              <%= image_tag('white-bottle.png', alt: "white wine bottle", class:"cave-card-little-bottle") %>
             </div>
-            <div class="count">
+            <div class="bottle-count">
               <p>2</p>
             </div>
           </div>

@@ -1,3 +1,47 @@
+// INDEX WINE
+
+.wine-index-card {
+  display: flex;
+  background-color: $light-gray;
+  height: 193px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  margin: 50px auto;
+  padding-right: 10px;
+  padding-left: 100px;
+  position: relative;
+  .wine-index-img {
+    width: 170px;
+    position: absolute;
+    left: -35px;
+    bottom: 10px;
+    object-fit: cover;
+  }
+}
+
+.wine-index-title {
+  border-radius: 0px 10px 10px 0px;
+  // width: 100%;
+  position: relative;
+  padding-top: 10px;
+  h1 {
+    color: $black;
+    font-size: 20px;
+  }
+}
+
+.wine-index-description {
+  overflow: hidden;
+  color: black;
+  position: relative;
+  flex-grow: 1;
+  h3 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+// INDEX WINE END !!!
+
 // Card - Cave Index
 
 .cave-card {
@@ -17,7 +61,7 @@
   object-fit: cover;
 }
 
-.card-info {
+.cave-card-info {
   height: 230px;
 }
 
@@ -41,135 +85,55 @@
   }
 }
 
-.card-element {
+.cave-card-element {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   padding-left: 9px;
   padding-top: 16px;
+  p {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15px;
+  font-weight: bold;
+  }
 }
 
-.position-count{
+.cave-bottle-count{
   position: relative;
 }
 
-.count {
+.bottle-count {
   position: absolute;
   top: 69px;
   left: 3px;
 }
 
-.little-bottle {
+.cave-card-little-bottle {
   height: 100px;
   width: 41%;
   margin: 14px 15px 14px 10px;
 }
 
-.card-element p {
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  padding-left: 15px;
-  font-weight: bold;
-}
+// Card - Cave Index - END
 
-// SHOW WINE
 
-.wine-show-card {
-  display: flex;
-  background-color: $light-gray;
-  height: 193px;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
-  margin: 50px auto;
-  padding-right: 10px;
-  padding-left: 100px;
-  position: relative;
-  .wine-show-img {
-    width: 170px;
-    position: absolute;
-    left: -35px;
-    bottom: 10px;
-    object-fit: cover;
-  }
-}
+// .wine-meal {
+//   height: 20px;
+//   text-align: center;
+//   h3 {
+//     font-size: 16px;
+//   }
+// }
 
-.wine-title {
-  border-radius: 0px 10px 10px 0px;
-  // width: 100%;
-  position: relative;
-  padding-top: 10px;
-  h1 {
-    color: $black;
-    font-size: 20px;
-  }
-}
+// .wine-quantity {
+//   text-align: center;
+//   margin-top: 10px;
+//   h3 {
+//     font-size: 15px;
+//     color: $primary-color;
+//   }
+// }
 
-.wine-description {
-  overflow: hidden;
 
-  // text-align: left;
-  color: black;
-  position: relative;
-  flex-grow: 1;
-  h3 {
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-  }
-}
-
-.wine-meal {
-  height: 20px;
-  text-align: center;
-  h3 {
-    font-size: 16px;
-  }
-}
-
-.wine-quantity {
-  text-align: center;
-  margin-top: 10px;
-  h3 {
-    font-size: 15px;
-    color: $primary-color;
-  }
-}
-
-.wine-apogee {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 15px;
-  // margin-top: 60px;
-  h3 {
-    font-size: 10px;
-    margin-bottom: 0;
-  }
-}
-
-.progress-bar {
-  position: relative;
-  font-size: 6em;
-  width: 100px;
-  height: 1rem;
-  background-color: $primary-color;
-}
-
-.progress {
-  border-radius: 10px;
-  width: 170px;
-  margin: 0 5px;
-  border: 1px solid #bda6ac;
-}
-
-.current-cave-name {
-  height: 40px;
-  background-color: $light-gray;
-  margin-bottom: 10px;
-  text-align: center;
-  h1 {
-    font-size: 20px;
-    color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}

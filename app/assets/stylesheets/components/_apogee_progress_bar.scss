@@ -1,0 +1,26 @@
+.wine-apogee {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  // margin-top: 60px;
+  h3 {
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.progress-bar {
+  position: relative;
+  font-size: 6em;
+  width: 100px;
+  height: 1rem;
+  background-color: $primary-color;
+}
+
+.progress {
+  border-radius: 10px;
+  width: 170px;
+  margin: 0 5px;
+  border: 1px solid #bda6ac;
+}
