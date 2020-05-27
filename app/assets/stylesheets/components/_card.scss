@@ -3,18 +3,17 @@
 .cave-card {
   height: 200px;
   background-color: $light-gray;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.48);
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 25px;
+  text-decoration: none;
 }
 
-.card-img {
-  width: 50%;
+.card-cave-img {
+  width: 150px;
   height: 200px;
-  border-radius: 10px 0 0 10px;
   object-fit: cover;
 }
 
@@ -24,14 +23,21 @@
 
 .cave-name {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 10px;
+  padding-top: 16px;
   h3 {
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: 'Montserrat Subrayada', sans-serif;
     padding-top: 16px;
+    color: black;
+  }
+  #cave-favicon {
+    padding-top: 10px;
+    font-size: 16px;
+    color: $secondary-color;
+    opacity: 0.8;
   }
 }
 
@@ -41,20 +47,30 @@
   justify-content: center;
   margin: 0 auto;
   padding-left: 9px;
+  padding-top: 16px;
+}
+
+.position-count{
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  top: 69px;
+  left: 3px;
 }
 
 .little-bottle {
   height: 100px;
   width: 41%;
   margin: 14px 15px 14px 10px;
-
 }
+
 .card-element p {
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   padding-left: 15px;
   font-weight: bold;
-
 }
 
 // SHOW WINE
