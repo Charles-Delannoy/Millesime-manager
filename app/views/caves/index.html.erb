@@ -4,7 +4,7 @@
     <h1> Mes caves </h1>
   </div>
   <div class="cave-link">
-    <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cafe_path, id:"favicon-add-cave" %>
+    <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cave_path, id:"favicon-add-cave" %>
   </div>
 </div>
 
@@ -22,7 +22,7 @@
 
         <div class="cave-name">
           <h3> <%= cave.name %> </h3>
-          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cafe_path(cave), id:"cave-favicon" %>
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cave_path(cave), id:"cave-favicon" %>
         </div>
 
         <div class="card-element">
