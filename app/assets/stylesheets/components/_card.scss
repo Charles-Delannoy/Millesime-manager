@@ -62,11 +62,17 @@
 .wine-show-card {
   display: flex;
   background-color: $light-gray;
-  height: 230px;
+  height: 150px;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  margin: 30px auto;
+  padding-right: 10px;
+  padding-left: 100px;
+  position: relative;
   .wine-show-img {
-    height: 80%;
-    width: 30vw;
+    width: 120px;
+    position: absolute;
+    left: -15px;
+    bottom: 10px;
     object-fit: cover;
   }
 }
@@ -84,7 +90,7 @@
 
 .wine-description {
   overflow: hidden;
-  height: 80px;
+
   // text-align: left;
   color: black;
   position: relative;
@@ -115,7 +121,7 @@
 .wine-apogee {
   display: flex;
   align-items: center;
-  margin-top: 60px;
+  // margin-top: 60px;
   h3 {
     font-size: 10px;
     margin-bottom: 0;
@@ -124,17 +130,16 @@
 
 .progress-bar {
   position: relative;
-  box-sizing: border-box;
   font-size: 6em;
   width: 100px;
-  height: 30px;
+  height: 1rem;
   background-color: $primary-color;
-  border: 1px solid #bda6ac;
+
 }
 
 .progress {
   border-radius: 10px;
-  width: 70%;
+  width: 170px;
   margin: 0 5px;
   border: 1px solid #bda6ac;
 }

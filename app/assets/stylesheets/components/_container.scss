@@ -1,5 +1,7 @@
 .container-fluid {
-  padding-top: 90px;
+  padding: 90px 10px;
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
+  background-position: fixed;
+
 }
