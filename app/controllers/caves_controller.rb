@@ -10,7 +10,7 @@ class CavesController < ApplicationController
     @cave = Cave.new
     authorize @cave
   end
-  
+
   def show
     @bottles = Bottle.where(cave: @cave)
     authorize @cave

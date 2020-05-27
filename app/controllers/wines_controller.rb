@@ -6,6 +6,8 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params['id'])
+    @assemblages = Assemblage.where(wine: @wine)
+    @pairings = Pairing.where(wine: @wine)
     authorize @wine
   end
 

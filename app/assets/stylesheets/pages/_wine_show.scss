@@ -1,0 +1,53 @@
+.wine-show-title {
+  width: 70vw;
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+// WINE SHOW
+
+
+.wine-show-card {
+  display: flex;
+  background-color: $light-gray;
+  position: relative;
+  margin-top: -50px;
+  // z-index: 1;
+  padding: 50px 15px 40px 15px;
+  height: 200px;
+}
+
+.wine-show-image {
+    // width: 40%;
+    // // margin-left: auto;
+    // // margin-right: auto;
+    // // z-index: 2;
+    // position: relative;
+  }
+
+// END WINE SHOW !!!
+
+// Card - Cave Index - END
+
+
+// .wine-meal {
+//   height: 20px;
+//   text-align: center;
+//   h3 {
+//     font-size: 16px;
+//   }
+// }
+
+// .wine-quantity {
+//   text-align: center;
+//   margin-top: 10px;
+//   h3 {
+//     font-size: 15px;
+//     color: $primary-color;
+//   }
+// }
+

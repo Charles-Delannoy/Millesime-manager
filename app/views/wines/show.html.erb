@@ -1,1 +1,40 @@
-<%= link_to "add to a cave", new_wine_bottle_path(@wine) %>
+
+
+<div class="wine-show-title">
+  <h1><%= @wine.name %> - <%= @wine.millesime %></h1>
+</div>
+
+<!-- <div class="wine-show-card">
+
+  <div wine-show-description>
+    <div class="row">
+      <div class="col-6 pr-0">
+        <h3>REGION</h3>
+        <%= @wine.appelation.region.name %>
+      </div>
+      <div class="col-6 pr-0">
+         <h3>CHATEAU</h3>
+        <%= @wine.castle.name %>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-6 pr-0">
+         <h3>CEPAGES</h3>
+            <% @assemblages.each do |assemblage| %>
+             <p class="mb-0"><%= assemblage.cepage.name %></p>
+            <% end %>
+      </div>
+      <div class="col-6 pr-0">
+        <h3>ALLIANCE METS & VINS</h3>
+          <% @pairings.each do |pairing| %>
+              <%= pairing.meal.name %>
+            <% end %>
+      </div>
+    </div>
+    <!-- <div class="wine-show-image">
+    <%= cl_image_tag @wine.photo.key %>
+  </div> -->
+</div> -->
+
+<%= link_to "Ajouter à ma cave", new_wine_bottle_path(@wine), class: "add-wine-to-my-cave-btn" %>
+
