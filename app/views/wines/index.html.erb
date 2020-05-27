@@ -1,0 +1,38 @@
+<h1>Les vins</h1>
+
+
+<% @wines.each do |wine| %>
+<%= link_to wine_path(wine) do %>
+  <div class="wine-show-card">
+
+    <div class="wine-image">
+      <%= image_tag 'https://medias.nicolas.com/media/sys_master/images/he2/h5b/9113560350750.png', class: "wine-show-img" %>
+
+    </div>
+
+    <div class="wine-information">
+      <div class="wine-title">
+        <h1><strong><%= wine.name %></strong></h1>
+      </div>
+      <div class="wine-description">
+        <h3> <strong>Region:</strong> <%= wine.appelation.region.name %> </h3>
+        <h3> <strong>Appelation:</strong> <%= wine.appelation.name %> </h3>
+      </div>
+
+      <% now_diff = Time.now.year - wine.apogee_start %>
+      <% apogee_duration = wine.apogee_end - wine.apogee_start %>
+      <% percentage = (apogee_duration == 0) ? 100 : (now_diff.to_f/apogee_duration)*100 %>
+
+      <div class="wine-apogee">
+      <h3><%= wine.apogee_start %></h3>
+      <div class="progress">
+        <div class="progress-bar" style="width:<%= percentage.to_i %>%;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+      <h3><%= wine.apogee_end %></h3>
+    </div>
+    </div>
+
+  </div>
+<% end %>
+<% end %>
