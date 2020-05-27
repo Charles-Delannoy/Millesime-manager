@@ -1,0 +1,5 @@
+<%= simple_form_for [@wine, @bottle] do |f| %>
+<%= f.input :quantity %>
+<%= f.input :cave, :collection => @caves %>
+<%= f.submit "add to my cave"%>
+<% end %>
