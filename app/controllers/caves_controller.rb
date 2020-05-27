@@ -6,6 +6,7 @@ class CavesController < ApplicationController
 
   def new
     @cave = Cave.new
+    authorize @cave
   end
 
   def show
