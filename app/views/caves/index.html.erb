@@ -2,10 +2,10 @@
 <div class="container-cave">
 
   <div class="current-cave-name">
-    <h1><%= @caves.name %> <%= link_to '+', new_cafe_path %></h1>
+    <h1><%= @caves.name %> <%= link_to '+', new_cave_path %></h1>
   </div>
   <% @caves.each do |cave| %>
-  <%= link_to cafe_path(cave) do %>
+  <%= link_to cave_path(cave) do %>
     <div class="cave-card">
         <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
       <div class="card-info">
