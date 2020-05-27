@@ -8,8 +8,8 @@
   <% @caves.each do |cave| %>
     <%= link_to cafe_path(cave) do %>
       <div class="cave-card">
-        <% if @cave.photo.attached? %>
-          <%= cl_image_tag @cave.photo.key, crop: :fill, alt: "personnal cave", class: "card-cave-img"%>
+        <% if cave.photo.attached? %>
+          <%= cl_image_tag cave.photo.key, alt: "personnal cave", class: "card-cave-img"%>
         <% else %>
           <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
         <% end %>
