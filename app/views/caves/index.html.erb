@@ -1,48 +1,63 @@
 
 <div class="container-cave">
-
   <div class="current-cave-name">
-    <h1> Mes caves <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cafe_path, id:"add-cave" %></h1>
+    <h1> Mes caves </h1>
   </div>
+  <div class="cave-link">
+    <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cafe_path, id:"favicon-add-cave" %>
+  </div>
+</div>
 
-  <% @caves.each do |cave| %>
-    <%= link_to cafe_path(cave) do %>
-      <div class="cave-card">
-        <% if cave.photo.attached? %>
-          <%= cl_image_tag cave.photo.key, alt: "personnal cave", class: "card-cave-img"%>
-        <% else %>
-          <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
-        <% end %>
-        <div class="card-info">
+<% @caves.each do |cave| %>
 
-          <div class="cave-name">
-            <h3> <%= cave.name %> </h3>
-            <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cafe_path(cave), id:"cave-favicon" %>
+  <%= link_to cafe_path(cave) do %>
+    <div class="cave-card">
+      <% if cave.photo.attached? %>
+        <%= cl_image_tag cave.photo.key, alt: "personnal cave", class: "card-cave-img"%>
+      <% else %>
+        <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
+      <% end %>
+
+      <div class="card-info">
+
+        <div class="cave-name">
+          <h3> <%= cave.name %> </h3>
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cafe_path(cave), id:"cave-favicon" %>
+        </div>
+
+        <div class="card-element">
+          <div class="position-count">
+            <div class="red-bottles">
+              <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"little-bottle") %>
+            </div>
+              <div class="count">
+                <p>14</p>
+              </div>
           </div>
 
-          <div class="card-element">
-            <div class="red-bottles-count">
-              <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"little-bottle") %>
-              <p>14</p>
-            </div>
-
+          <div class="position-count">
             <div class="rose-bottles-count">
               <%= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"little-bottle") %>
+            </div>
+            <div class="count">
               <p>6</p>
             </div>
+          </div>
 
+          <div class="position-count">
             <div class="white-bottles-count">
               <%= image_tag('white-bottle.png', alt: "white wine bottle", class:"little-bottle") %>
+            </div>
+            <div class="count">
               <p>2</p>
             </div>
-
           </div>
         </div>
-      </div>
-    <% end %>
-  <% end %>
 
-</div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <%#= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
 

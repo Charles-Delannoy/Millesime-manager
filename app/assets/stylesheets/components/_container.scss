@@ -1,5 +1,24 @@
 .container-fluid {
-  padding-top: 90px;
+  padding: 90px 10px;
   background-color: white;
-  min-height: 100vh;
+  height: 100vh;
+}
+
+// Index Cave Position Favicon
+
+.container-cave {
+  position: relative;
+}
+
+.cave-link {
+  position: absolute;
+  border: 2px solid #74d4c0;
+  border-radius: 50%;
+  top: 3px;
+  right: 14px;
+}
+
+#favicon-add-cave {
+  color: $green-contrasting;
+  font-size: 20px;
 }
