@@ -6,12 +6,13 @@ class CavesController < ApplicationController
     @caves = policy_scope(Cave).where(user: current_user)
   end
 
-  def show
-    authorize @cave
-  end
-
   def new
     @cave = Cave.new
+    authorize @cave
+  end
+  
+  def show
+    @bottles = Bottle.where(cave: @cave)
     authorize @cave
   end
 

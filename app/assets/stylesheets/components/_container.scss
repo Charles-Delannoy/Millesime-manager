@@ -1,7 +1,8 @@
 .container-fluid {
   padding: 90px 10px;
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
+  background-position: fixed;
 }
 
 // Index Cave Position Favicon

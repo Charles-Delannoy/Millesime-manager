@@ -10,7 +10,7 @@
 
 <% @caves.each do |cave| %>
 
-  <%= link_to cafe_path(cave) do %>
+  <%= link_to cave_path(cave) do %>
     <div class="cave-card">
       <% if cave.photo.attached? %>
         <%= cl_image_tag cave.photo.key, alt: "personnal cave", class: "card-cave-img"%>
