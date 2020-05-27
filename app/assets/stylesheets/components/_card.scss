@@ -73,9 +73,9 @@
   font-weight: bold;
 }
 
-// SHOW WINE
+// INDEX WINE
 
-.wine-show-card {
+.wine-index-card {
   display: flex;
   background-color: $light-gray;
   height: 193px;
@@ -84,7 +84,7 @@
   padding-right: 10px;
   padding-left: 100px;
   position: relative;
-  .wine-show-img {
+  .wine-index-img {
     width: 170px;
     position: absolute;
     left: -35px;
@@ -93,7 +93,7 @@
   }
 }
 
-.wine-title {
+.wine-index-title {
   border-radius: 0px 10px 10px 0px;
   // width: 100%;
   position: relative;
@@ -104,7 +104,7 @@
   }
 }
 
-.wine-description {
+.wine-index-description {
   overflow: hidden;
 
   // text-align: left;
@@ -116,6 +116,8 @@
     font-family: 'Montserrat', sans-serif;
   }
 }
+
+// INDEX WINE END !!!
 
 .wine-meal {
   height: 20px;
@@ -134,32 +136,6 @@
   }
 }
 
-.wine-apogee {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 15px;
-  // margin-top: 60px;
-  h3 {
-    font-size: 10px;
-    margin-bottom: 0;
-  }
-}
-
-.progress-bar {
-  position: relative;
-  font-size: 6em;
-  width: 100px;
-  height: 1rem;
-  background-color: $primary-color;
-}
-
-.progress {
-  border-radius: 10px;
-  width: 170px;
-  margin: 0 5px;
-  border: 1px solid #bda6ac;
-}
 
 .current-cave-name {
   height: 40px;

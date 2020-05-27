@@ -3,18 +3,18 @@
 
 <% @wines.each do |wine| %>
 <%= link_to wine_path(wine) do %>
-  <div class="wine-show-card">
+  <div class="wine-index-card">
 
     <div class="wine-image">
-      <%= cl_image_tag wine.photo.key, class: "wine-show-img" %>
+      <%= cl_image_tag wine.photo.key, class: "wine-index-img" %>
 
     </div>
 
-    <div class="wine-information">
-      <div class="wine-title">
+    <div class="wine-index-card-content">
+      <div class="wine-index-title">
         <h1><strong><%= wine.name %></strong></h1>
       </div>
-      <div class="wine-description">
+      <div class="wine-index-description">
         <h3> <strong>Region:</strong> <%= wine.appelation.region.name %> </h3>
         <h3> <strong>Appelation:</strong> <%= wine.appelation.name %> </h3>
       </div>
