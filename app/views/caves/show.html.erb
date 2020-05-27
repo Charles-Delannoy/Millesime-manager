@@ -4,18 +4,18 @@
 
 <% @bottles.each do |bottle| %>
 
-  <div class="wine-show-card">
+  <div class="cave-show-wine-card">
 
     <div class="wine-image">
-      <%= cl_image_tag bottle.wine.photo.key, class: "wine-show-img" %>
+      <%= cl_image_tag bottle.wine.photo.key, class: "cave-show-wine-img" %>
 
     </div>
 
-    <div class="wine-information">
-      <div class="wine-title">
+    <div class="cave-show-wine-information">
+      <div class="cave-show-wine-title">
         <h1><strong><%= bottle.wine.name %></strong></h1>
       </div>
-      <div class="wine-description">
+      <div class="cave-show-wine-description">
         <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
         <h3> <strong>Appelation:</strong> <%= bottle.wine.appelation.name %> </h3>
         <h3> <strong>Qty: <%= bottle.quantity %> </strong></h3>

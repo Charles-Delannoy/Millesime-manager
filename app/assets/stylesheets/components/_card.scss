@@ -42,6 +42,50 @@
 
 // INDEX WINE END !!!
 
+// CAVE SHOW
+
+.cave-show-wine-card {
+  display: flex;
+  background-color: $light-gray;
+  height: 193px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  margin: 50px auto;
+  padding-right: 10px;
+  padding-left: 100px;
+  position: relative;
+  .cave-show-wine-img {
+    width: 170px;
+    position: absolute;
+    left: -35px;
+    bottom: 10px;
+    object-fit: cover;
+  }
+}
+
+.cave-show-wine-title {
+  border-radius: 0px 10px 10px 0px;
+  // width: 100%;
+  position: relative;
+  padding-top: 10px;
+  h1 {
+    color: $black;
+    font-size: 20px;
+  }
+}
+
+.cave-show-wine-description {
+  overflow: hidden;
+  color: black;
+  position: relative;
+  flex-grow: 1;
+  h3 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+// CAVE SHOW END
+
 // Card - Cave Index
 
 .cave-card {
