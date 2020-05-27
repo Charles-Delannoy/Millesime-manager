@@ -62,16 +62,16 @@
 .wine-show-card {
   display: flex;
   background-color: $light-gray;
-  height: 150px;
+  height: 193px;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
-  margin: 30px auto;
+  margin: 50px auto;
   padding-right: 10px;
   padding-left: 100px;
   position: relative;
   .wine-show-img {
-    width: 120px;
+    width: 170px;
     position: absolute;
-    left: -15px;
+    left: -35px;
     bottom: 10px;
     object-fit: cover;
   }
@@ -121,6 +121,8 @@
 .wine-apogee {
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 10px;
   // margin-top: 60px;
   h3 {
     font-size: 10px;
