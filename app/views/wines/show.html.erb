@@ -25,8 +25,8 @@
     <div class="wine-show-section">
       <h3>ACCORDS METS & VINS</h3>
       <% @pairings.each do |pairing| %>
-      <p><%= pairing.meal.name %></p>
-      <p><%= pairing.meal.icon.html_safe if pairing.meal.icon %></p>
+     <p><%= pairing.meal.icon.html_safe if pairing.meal.icon %> <%= pairing.meal.name %></p>
+
       <% end %>
     </div>
   </div>
