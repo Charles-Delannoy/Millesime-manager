@@ -29,10 +29,11 @@
       <% end %>
     </div>
   </div>
-    <div class="wine-show-card-img">
-      <%= cl_image_tag @wine.photo.key %>
+    <div class="wine-image">
+      <%= cl_image_tag @wine.photo.key, class: "wine-show-card-img" %>
     </div>
 </div>
 <div class="wine-show-action">
   <%= link_to "Ajouter à ma cave", new_wine_bottle_path(@wine), class: "add-wine-to-my-cave-btn" %>
 </div>
+

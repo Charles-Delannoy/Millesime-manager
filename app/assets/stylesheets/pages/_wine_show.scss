@@ -27,11 +27,13 @@
   .wine-show-section {
     width: 220px;
     margin-left: 5px;
+    margin-bottom: 8px;
   }
   .wine-show-card-img {
     position: absolute;
-    bottom: 15px ;
+    bottom: 30px ;
     right: -110px;
+    object-fit: none;
   }
   p {
     margin-bottom: 0;
