@@ -1,0 +1,32 @@
+.footer {
+  background: $primary-color;
+  height: 60px;
+  padding: 4px 30px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#user-img-white {
+  width: 40px;
+  height: 50px;
+}
+
+#search-logo-white {
+  width: 40px;
+  margin-bottom: -16px;
+}
+
+#cave-logo-white {
+  width: 40px;
+}
+
+#reward-logo-white {
+  width: 40px;
+}
