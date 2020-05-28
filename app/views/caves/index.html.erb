@@ -19,64 +19,53 @@
       <% end %>
 
       <div class="cave-card-info">
-
         <div class="cave-name">
           <h3> <%= cave.name %> </h3>
           <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cave_path(cave), id:"cave-favicon" %>
         </div>
 
         <div class="cave-card-element">
-          <div class="cave-bottle-count">
-            <div class="red-bottles">
-              <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"cave-card-little-bottle") %>
-            </div>
-              <div class="bottle-count">
-                <p>14</p>
+
+          <% red_count = cave.bottles.joins(:wine).where(wines: {color: 'Rouge'}).sum(:quantity) %>
+
+          <% if red_count > 0 %>
+            <div class="cave-bottle-count">
+              <div class="red-bottles">
+                <%= image_tag('red-bottle.png', alt: "red wine bottle", class:"cave-card-little-bottle") %>
               </div>
-          </div>
+                <div class="bottle-count">
+                    <p><%= red_count %></p>
+                </div>
+            </div>
+          <% end %>
 
-          <div class="cave-bottle-count">
-            <div class="rose-bottles-count">
-              <%= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"cave-card-little-bottle") %>
-            </div>
-            <div class="bottle-count">
-              <p>6</p>
-            </div>
-          </div>
+          <% pink_count = cave.bottles.joins(:wine).where(wines: {color: 'Rosé'}).sum(:quantity) %>
 
-          <div class="cave-bottle-count">
-            <div class="white-bottles-count">
-              <%= image_tag('white-bottle.png', alt: "white wine bottle", class:"cave-card-little-bottle") %>
+          <% if pink_count > 0 %>
+            <div class="cave-bottle-count">
+              <div class="rose-bottles-count">
+                <%= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"cave-card-little-bottle") %>
+              </div>
+              <div class="bottle-count">
+                  <p><%= pink_count %></p>
+              </div>
             </div>
-            <div class="bottle-count">
-              <p>2</p>
+          <% end %>
+
+          <% white_count = cave.bottles.joins(:wine).where(wines: {color: 'Blanc'}).sum(:quantity) %>
+
+          <% if white_count > 0  %>
+            <div class="cave-bottle-count">
+              <div class="white-bottles-count">
+                <%= image_tag('white-bottle.png', alt: "white wine bottle", class:"cave-card-little-bottle") %>
+              </div>
+              <div class="bottle-count">
+                  <p><%= white_count %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
-
       </div>
     </div>
   <% end %>
 <% end %>
-
-<%#= image_tag "https://source.unsplash.com/300x200/?cellar-wine", alt: "personnal cave", class:"card-img" %>
-
-<!-- if cave.bottle.wine.color.red > 0
-  <div class="red-bottles-count">
-    <%#= image_tag("red-bottle.svg"), alt: "red wine bottle" %>
-    <p>Info 1</p>
-  </div>
-end
-if cave.bottle.wine.color.rose > 0
-  <div class="rose-bottles-count">
-    <%#= image_tag("rose-bottle.svg"), alt: "rose wine bottle" %>
-    <p>Info 1</p>
-  </div>
-end
-if cave.bottle.wine.color.white > 0
-  <div class="white-bottles-count">
-    <%#= image_tag("white-bottle.svg"), alt: "white wine bottle" %>
-    <p>Info 1</p>
-  </div>
-end -->
-
