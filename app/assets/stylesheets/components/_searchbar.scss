@@ -3,13 +3,19 @@
   width: 100%;
   justify-content: center;
   margin: 10px auto;
-  border: 1px solid $primary-color;
+
   border-radius: 5px;
   .search-wine {
     flex-grow: 1;
     border-radius: 5px 0px 0px 5px;
-    border: none;
+    border: 1px solid $primary-color;
     padding-left: 5px;
     text-align: center;
+  }
+  .meal-filter {
+    flex-grow: 1;
+    border: 1px solid $primary-color;
+    border-radius: 5px 0px 0px 5px;
+    background-color: white
   }
 }
