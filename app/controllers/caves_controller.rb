@@ -21,7 +21,7 @@ class CavesController < ApplicationController
     authorize @cave
     @cave.user = current_user
     if @cave.save
-      redirect_to caves_path
+      redirect_to cave_path(@cave)
     else
       render :new
     end
