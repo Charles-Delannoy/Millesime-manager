@@ -12,11 +12,11 @@ class CavesController < ApplicationController
   end
 
   def show
-    @bottles = Bottle.where(cave: @cave)
     @meals = Meal.all
     if params[:meal].present?
-      @meal = Meal.find(params[:meal])
-      @bottles = Bottle.where(cave: @cave)
+      @bottles = @cave.bottles.joins(wine: :pairings).where(wines: {pairings: {meal_id: params[:meal]}})
+    else
+      @bottles = @cave.bottles
     end
     authorize @cave
   end
