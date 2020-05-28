@@ -1,5 +1,13 @@
 <h1>Les vins</h1>
 
+<%= form_tag wines_path, class: "search-bar", method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "search-wine",
+    placeholder: "Trouver votre bouteille"
+  %>
+  <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
+<% end %>
 
 <% @wines.each do |wine| %>
 <%= link_to wine_path(wine) do %>
