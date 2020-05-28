@@ -119,7 +119,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
 
         icons = {
           poissonensauce: "<i class='fas fa-fish'></i>",
-          charcuterie: "<i class='far fa-bacon'></i>",
+          charcuterie: "<i class='fas fa-bacon'></i>",
           fromagedoux: "<i class='fas fa-cheese'></i>",
           fromagecorsé: "<i class='fas fa-cheese'></i>",
           tarte: "<i class='fas fa-chart-pie'></i>",
