@@ -4,6 +4,7 @@
   position: relative;
 }
 
+//Also used for take out a bottle from a cave show
 .create-cave-link {
   position: absolute;
   height: 30px;
@@ -64,8 +65,26 @@
     padding: 8px
   }
 
+.take-bottle-out-btn {
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: white;
+}
 
-
+.take-bottle-out {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $green-contrasting;
+}
 
 
 
