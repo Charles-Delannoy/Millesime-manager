@@ -1,1 +1,43 @@
-// Specific CSS for your home-page
+.home-page-container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+
+}
+
+.home-page-title {
+  position: absolute;
+  text-align: center;
+  padding-top: 20px;
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 30px;
+    padding: 0 10px;
+  }
+}
+
+.home-picture {
+  margin-top: -100px;
+  margin-left: -70px;
+  object-fit: none;
+}
+
+.create-a-cave-btn {
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  opacity: 1;
+
+}
+
+.btn-homepage {
+  text-align: center;
+  margin-top: 150px;
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+  }
+}

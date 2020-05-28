@@ -14,10 +14,16 @@
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="custom-container">
+    <div <% unless current_page?('/')%> class="custom-container"<% else %>class="custom-container-home"<% end %>>
+
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
 
+    <% unless current_page?('/')%>
+      <%= render "shared/footer" %>
+    <% else %>
+      <%= render "shared/footer_home" %>
+    <% end %>
   </body>
 </html>
