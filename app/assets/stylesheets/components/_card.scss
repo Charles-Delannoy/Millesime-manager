@@ -94,7 +94,7 @@
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 25px;
   text-decoration: none;
 }
@@ -107,6 +107,7 @@
 
 .cave-card-info {
   height: 230px;
+  width: 100%;
 }
 
 .cave-name {
@@ -158,6 +159,7 @@
   height: 100px;
   width: 41%;
   margin: 14px 15px 14px 10px;
+  object-fit: cover;
 }
 
 
