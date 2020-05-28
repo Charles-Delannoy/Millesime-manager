@@ -26,6 +26,7 @@
       <h3>ACCORDS METS & VINS</h3>
       <% @pairings.each do |pairing| %>
       <p><%= pairing.meal.name %></p>
+      <p><%= pairing.meal.icon.html_safe if pairing.meal.icon %></p>
       <% end %>
     </div>
   </div>

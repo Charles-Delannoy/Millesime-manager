@@ -43,7 +43,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
       p bottle_name = bottle_full_name[0..(bottle_full_name.length - 5)].strip
       p millesime = bottle_full_name[-4..-1].to_i
 
-      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé"
+      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé" || bottle_name == "AROMES ROSé"
         p 'NON VALID'
       else
 
@@ -115,11 +115,28 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
         my_wine.save
         #CREATE THE WINE OBJECT
 
+        icons = {
+          poissonensauce: "<i class='fas fa-fish'></i>",
+          charcuterie: "<i class='far fa-bacon'></i>",
+          fromagedoux: "<i class='far fa-cheese-swiss'></i>",
+          fromagecorsé: "<i class='far fa-cheese-swiss'></i>",
+          tarte: "<i class='fal fa-pie'></i>",
+          viandeblanche: "<i class='fal fa-turkey'></i>",
+          poissongrillé: "<i class='fas fa-fish'></i>",
+          vianderouge: "<i class='fal fa-cow'></i>",
+          gibier: "<i class='fad fa-meat'></i>",
+          gâteau: "<i class='far fa-birthday-cake'></i>",
+          coquillagesetcrustacés: "<i class='fas fa-water'></i>",
+          foiegras: "<i class='far fa-bread-slice'></i>",
+          agneau: "<i class='far fa-meat'></i>",
+        }
         # Meal associations
         html_doc.search('.ns-AgreementList-description').each do |meal|
           p meal_name = meal.text
           if Meal.where(name: meal_name).empty?
             my_meal = Meal.new(name: meal_name)
+            icon = meal_name.gsub(" ","").downcase.to_sym
+            my_meal.icon = icons[icon]
             my_meal.save
           else
             my_meal = Meal.where(name: meal_name)[0]
