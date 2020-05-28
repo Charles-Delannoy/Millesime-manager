@@ -1,6 +1,8 @@
-<h1>Modifier ma cave "<span><%= @cave.name %><span>"</h1>
+<div class="cave-page-title">
+  <h1>Modifier ma cave</h1>
+</div>
 
 <%= render "form", cave: @cave %>
 <hr>
 
-<%= link_to 'Retour à mes caves', caves_path, class:'btn btn-secondary' %>
+<%= link_to 'Retour à mes caves', caves_path, class:'take-bottle-out-btn' %>
