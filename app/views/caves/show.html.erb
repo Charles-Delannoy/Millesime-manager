@@ -2,6 +2,11 @@
   <h1><%= @cave.name %></h1>
 </div>
 
+<%= form_tag cave_path(@cave), class: "search-bar", method: :get do %>
+  <%= select_tag "meal", options_from_collection_for_select(@meals, "id", "name"), include_blank: true , class: "meal-filter"%>
+  <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
+<% end %>
+
 <% @bottles.each do |bottle| %>
 
   <div class="cave-show-wine-card">

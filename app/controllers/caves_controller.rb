@@ -13,6 +13,11 @@ class CavesController < ApplicationController
 
   def show
     @bottles = Bottle.where(cave: @cave)
+    @meals = Meal.all
+    if params[:meal].present?
+      @meal = Meal.find(params[:meal])
+      @bottles = Bottle.where(cave: @cave)
+    end
     authorize @cave
   end
 
