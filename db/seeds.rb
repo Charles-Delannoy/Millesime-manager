@@ -16,6 +16,8 @@ puts "Destroy pairings"
 Pairing.destroy_all
 puts "Destroy meals"
 Meal.destroy_all
+puts "Destroy bottles"
+Bottle.destroy_all
 puts "Destroy wines"
 Wine.destroy_all
 puts "Destroy castles"
@@ -117,18 +119,18 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
 
         icons = {
           poissonensauce: "<i class='fas fa-fish'></i>",
-          charcuterie: "<i class='far fa-bacon'></i>",
-          fromagedoux: "<i class='far fa-cheese-swiss'></i>",
-          fromagecorsé: "<i class='far fa-cheese-swiss'></i>",
-          tarte: "<i class='fal fa-pie'></i>",
-          viandeblanche: "<i class='fal fa-turkey'></i>",
+          charcuterie: "<i class='fas fa-bacon'></i>",
+          fromagedoux: "<i class='fas fa-cheese'></i>",
+          fromagecorsé: "<i class='fas fa-cheese'></i>",
+          tarte: "<i class='fas fa-chart-pie'></i>",
+          viandeblanche: "<i class='fas fa-egg'></i>",
           poissongrillé: "<i class='fas fa-fish'></i>",
-          vianderouge: "<i class='fal fa-cow'></i>",
-          gibier: "<i class='fad fa-meat'></i>",
-          gâteau: "<i class='far fa-birthday-cake'></i>",
+          vianderouge: "<i class='fas fa-utensils'></i>",
+          gibier: "<i class='fas fa-drumstick-bite'></i>",
+          gâteau: "<i class='fas fa-birthday-cake'></i>",
           coquillagesetcrustacés: "<i class='fas fa-water'></i>",
-          foiegras: "<i class='far fa-bread-slice'></i>",
-          agneau: "<i class='far fa-meat'></i>",
+          foiegras: "<i class='fas fa-bread-slice'></i>",
+          agneau: "<i class='fas fa-cloud-meatball'></i>",
         }
         # Meal associations
         html_doc.search('.ns-AgreementList-description').each do |meal|
