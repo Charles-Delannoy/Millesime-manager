@@ -9,11 +9,17 @@ class BottlesController < ApplicationController
 
   def create
     @wine = Wine.find(params['wine_id'])
-    @bottle = Bottle.new(bottle_params)
-    authorize @bottle
     @cave = Cave.find(params[:bottle][:cave])
-    @bottle.wine = @wine
-    @bottle.cave = @cave
+    existing_bottle = @cave.bottles.where(wine: @wine)
+    if existing_bottle.empty?
+      @bottle = Bottle.new(bottle_params)
+      @bottle.wine = @wine
+      @bottle.cave = @cave
+    else
+      @bottle = existing_bottle[0]
+      @bottle.quantity += params[:bottle][:quantity].to_i
+    end
+      authorize @bottle
     @bottle.save ? (redirect_to cave_path(@cave)) : (render :new)
   end
 
