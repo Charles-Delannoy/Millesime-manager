@@ -8,14 +8,13 @@
   position: absolute;
   height: 30px;
   width: 30px;
-  border: 2px solid $green-contrasting;
   border-radius: 50%;
   top: 5px;
   right: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $green-contrasting;
+  background-color: $primary-color;
 }
 
 #favicon-add-cave {
