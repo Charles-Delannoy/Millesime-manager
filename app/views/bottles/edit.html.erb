@@ -1,0 +1,4 @@
+<%= simple_form_for @bottle do |f| %>
+<%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..f.object.quantity), selected: 1 %>
+<%= f.submit "sortir de la cave", class: "take-bottle-out-btn"%>
+<% end %>

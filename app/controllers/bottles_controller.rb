@@ -23,6 +23,18 @@ class BottlesController < ApplicationController
     @bottle.save ? (redirect_to cave_path(@cave)) : (render :new)
   end
 
+  def edit
+    @bottle = Bottle.find(params[:id])
+    authorize @bottle
+  end
+
+  def update
+    @bottle = Bottle.find(params[:id])
+    authorize @bottle
+    @bottle.quantity -= bottle_params[:quantity].to_i
+    @bottle.save ? (redirect_to cave_path(@bottle.cave)) : (render :new)
+  end
+
   private
 
   def bottle_params

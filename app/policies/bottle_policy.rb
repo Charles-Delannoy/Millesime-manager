@@ -8,6 +8,14 @@ class BottlePolicy < ApplicationPolicy
     create?
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    record.cave.user = user
+  end
+
 
   class Scope < Scope
     def resolve

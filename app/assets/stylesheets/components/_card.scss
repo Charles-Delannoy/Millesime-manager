@@ -67,6 +67,9 @@
   // width: 100%;
   position: relative;
   padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 65vw;
   h1 {
     color: $black;
     font-size: 20px;
