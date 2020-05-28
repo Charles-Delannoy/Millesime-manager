@@ -9,7 +9,7 @@
 </div>
 
 <% @caves.each do |cave| %>
-<div class="position-relative">
+<div class="card-position-relative-edit-favicon">
   <%= link_to cave_path(cave) do %>
 
     <div class="cave-card">
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="cave-position-edit-favicon position-absolute">
+    <div class="cave-position-edit-favicon">
       <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cave_path(cave), id:"cave-favicon" %>
     </div>
   </div>

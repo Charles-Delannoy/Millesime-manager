@@ -88,6 +88,20 @@
 
 // Card - Cave Index
 
+.card-position-relative-edit-favicon{
+  position: relative;
+  .cave-position-edit-favicon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+  }
+  #cave-favicon {
+    font-size: 16px;
+    color: $secondary-color;
+    opacity: 0.8;
+  }
+}
+
 .cave-card {
   height: 200px;
   background-color: $light-gray;
@@ -108,17 +122,6 @@
 .cave-card-info {
   height: 230px;
   width: 100%;
-  position: relative;
-  .cave-position-edit-favicon {
-    position: absolute;
-    top: 23px;
-    right: 10px;
-  }
-  #cave-favicon {
-    font-size: 16px;
-    color: $secondary-color;
-    opacity: 0.8;
-  }
 }
 
 .cave-name {
@@ -140,8 +143,6 @@
   padding-top: 16px;
   p {
   font-size: 16px;
-  // font-family: 'Montserrat', sans-serif;
-  // font-weight: bold;
   }
 }
 
