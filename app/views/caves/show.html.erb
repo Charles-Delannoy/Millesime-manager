@@ -7,6 +7,15 @@
   <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
 <% end %>
 
+<% if @bottles.empty? %>
+<div class="empty-cave">
+  <div class="empty-cave-content">
+    <p>Votre cave est vide</p>
+    <%= link_to "Add some bottles", wines_path, class: 'add-bottle' %>
+  </div>
+</div>
+
+<% else %>
 <% @bottles.each do |bottle| %>
 
   <div class="cave-show-wine-card">
@@ -41,6 +50,7 @@
     </div>
 
   </div>
+<% end %>
 <% end %>
 
 

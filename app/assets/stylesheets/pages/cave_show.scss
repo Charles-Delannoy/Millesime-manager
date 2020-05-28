@@ -1,0 +1,16 @@
+.empty-cave {
+  width: 95vw;
+  min-height: calc(100vh - 270px);
+  background-image: url('empty-cave.jpeg');
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.empty-cave-content {
+  padding-top: 200px;
+  p {
+    margin-bottom: 60px;
+  }
+}
