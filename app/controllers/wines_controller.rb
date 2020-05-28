@@ -1,7 +1,12 @@
 class WinesController < ApplicationController
 
   def index
-    @wines = policy_scope(Wine)
+    if params[:query].present?
+      sql_query = "name ILIKE :query"
+      @wines = policy_scope(Wine).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @wines = policy_scope(Wine)
+    end
   end
 
   def show
