@@ -20,7 +20,7 @@
 
     <div class="wine-index-card-content">
       <div class="wine-index-title">
-        <h1><strong><%= wine.name %></strong></h1>
+        <h1><strong><%= wine.name %> - <%= wine.millesime %></strong></h1>
       </div>
       <div class="wine-index-description">
         <h3> <strong>Region:</strong> <%= wine.appelation.region.name %> </h3>
@@ -28,8 +28,8 @@
       </div>
 
       <% now_diff = Time.now.year - wine.apogee_start %>
-      <% apogee_duration = wine.apogee_end - wine.apogee_start %>
-      <% percentage = (apogee_duration == 0) ? 100 : (now_diff.to_f/apogee_duration)*100 %>
+      <% apogee_duration = wine.apogee_end - wine.apogee_start + 1 %>
+      <% percentage = (now_diff < 0) ? 0 : ((now_diff+1).to_f/apogee_duration)*100 %>
 
       <div class="wine-apogee">
       <h3><%= wine.apogee_start %></h3>
