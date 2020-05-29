@@ -9,7 +9,14 @@
   <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
 <% end %>
 
-<% @wines.each do |wine| %>
+<% if params[:query].present? && @wines.empty? %>
+  <% @results = Wine.all %>
+  <p class="no-results">Aucun vin ne correspond à votre recherche !</p>
+<% else %>
+  <% @results = @wines %>
+<% end %>
+
+<% @results.each do |wine| %>
 <%= link_to wine_path(wine), class: "wine-index-card-link" do %>
   <div class="wine-index-card">
 
