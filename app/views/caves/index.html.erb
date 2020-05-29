@@ -16,7 +16,7 @@
       <% if cave.photo.attached? %>
         <%= cl_image_tag cave.photo.key, alt: "personnal cave", class: "card-cave-img"%>
       <% else %>
-        <%= image_tag "https://source.unsplash.com/300x200/?cellar-wine", class: "card-cave-img" %>
+        <%= image_tag('cave-index.jpg', alt: "cellard photo", class: "card-cave-img") %>
       <% end %>
 
       <div class="cave-card-info">
