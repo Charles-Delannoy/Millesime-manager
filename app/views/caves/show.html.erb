@@ -7,13 +7,17 @@
   <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
 <% end %>
 
-<% if !params[:meal].present? && @bottles.empty? %>
+<% bottle_count = @cave.bottles.sum(:quantity) %>
+
+<% if !params[:meal].present? && (@bottles.empty? || bottle_count == 0) %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
       <%= link_to "Add some bottles", wines_path, class: 'add-bottle' %>
     </div>
   </div>
+
+
 
 <% else %>
   <% if params[:meal].present? && @bottles.empty? %>
