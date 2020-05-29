@@ -8,6 +8,10 @@ class BottlePolicy < ApplicationPolicy
     create?
   end
 
+  def show?
+    record.cave.user = user
+  end
+
   def edit?
     update?
   end
