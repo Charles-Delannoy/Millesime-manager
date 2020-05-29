@@ -7,7 +7,7 @@
   <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
 <% end %>
 
-<% if @bottles.empty? %>
+<% if !params[:meal].present? && @bottles.empty? %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
@@ -15,8 +15,14 @@
     </div>
   </div>
 
+<% else %>
+  <% if params[:meal].present? && @bottles.empty? %>
+    <% @results = @cave.bottles %>
+    <p class="no-results">Aucunes bouteilles ne corresponds à votre recherche !</p>
   <% else %>
-  <% @bottles.each do |bottle| %>
+    <% @results = @bottles %>
+  <% end %>
+  <% @results.each do |bottle| %>
     <%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
       <% unless bottle.quantity == 0 %>
         <div class="cave-show-wine-card">
