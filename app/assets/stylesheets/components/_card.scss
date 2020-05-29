@@ -16,6 +16,11 @@
     bottom: 10px;
     object-fit: cover;
   }
+  .add-bottle-in {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 }
 
 .wine-index-title {
@@ -23,6 +28,7 @@
   // width: 100%;
   position: relative;
   padding-top: 10px;
+  padding-right: 35px;
   h1 {
     color: $black;
     font-size: 20px;

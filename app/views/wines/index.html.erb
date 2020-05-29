@@ -41,7 +41,9 @@
       <h3><%= wine.apogee_end %></h3>
     </div>
     </div>
-
+    <div class="add-bottle-in">
+      <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_wine_bottle_path(wine), id:"favicon-add-cave" %>
+    </div>
   </div>
 <% end %>
 <% end %>
