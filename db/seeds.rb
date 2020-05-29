@@ -79,7 +79,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
         best_year = html_doc.search('.ns-ProductGrappe-value--level')[0].text.strip.to_i
         if best_year == 0
           p apogee_start = millesime + 3
-          p apogee_end = millesime + 6
+          p apogee_end = millesime + 9
         else
           year_diff = best_year - millesime
           p apogee_start = best_year - year_diff/2
