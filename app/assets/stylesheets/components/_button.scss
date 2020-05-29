@@ -33,6 +33,10 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  &:hover{
+    text-decoration:none;
+    color: $primary-color;
+  }
 }
 
 // END SHOW WINE
@@ -62,7 +66,11 @@
     background-color: $primary-color;
     border-radius: 5px;
     font-weight: lighter;
-    padding: 8px
+    padding: 8px;
+    &:hover{
+    text-decoration:none;
+    color: white;
+    }
   }
 
 .take-bottle-out-btn {

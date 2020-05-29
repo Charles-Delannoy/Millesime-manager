@@ -23,6 +23,14 @@
   }
 }
 
+.wine-index-card-link {
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 .wine-index-title {
   border-radius: 0px 10px 10px 0px;
   // width: 100%;
@@ -125,6 +133,14 @@
   justify-content: space-between;
   margin-top: 25px;
   text-decoration: none;
+}
+
+.card-index-card-link {
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .card-cave-img {
