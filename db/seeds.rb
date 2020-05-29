@@ -83,7 +83,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
         else
           year_diff = best_year - millesime
           p apogee_start = best_year - year_diff/2
-          p apogee_end = best_year + year_diff/2
+          p apogee_end = best_year + year_diff/2 + 1
         end
         p 'Apogee'
 
