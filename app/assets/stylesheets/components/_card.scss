@@ -124,8 +124,15 @@
   text-decoration: none;
 }
 
-.card-index-card-link {
+.cave-index-card-link {
   color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+.cave-show-card-link {
+    color: black;
   &:hover {
     text-decoration: none;
     color: black;
