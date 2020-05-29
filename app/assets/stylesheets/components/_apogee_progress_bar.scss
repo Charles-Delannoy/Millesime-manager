@@ -16,6 +16,11 @@
   width: 100px;
   height: 1rem;
   background-color: $primary-color;
+  .a-depassee {
+  font-size: 12px;
+  margin: 0 auto;
+  padding-bottom: 4px;
+}
 }
 
 .progress {
@@ -24,3 +29,4 @@
   margin: 0 5px;
   border: 1px solid #bda6ac;
 }
+

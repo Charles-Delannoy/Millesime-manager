@@ -34,7 +34,8 @@
       <div class="wine-apogee">
       <h3><%= wine.apogee_start %></h3>
       <div class="progress">
-        <div class="progress-bar" style="width:<%= percentage.to_i %>%;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width:<%= percentage.to_i %>%;">
+          <% if wine.apogee_end < Time.now.year %> <p class='a-depassee'>Apogée dépassée</p> <% end %>
         </div>
       </div>
       <h3><%= wine.apogee_end %></h3>
