@@ -29,9 +29,6 @@
           <div class="cave-show-wine-information">
             <div class="cave-show-wine-title">
               <h1><strong><%= bottle.wine.name %></strong></h1>
-              <div class="take-bottle-out">
-                <%= link_to '<i class="fas fa-minus"></i>'.html_safe, edit_bottle_path(bottle), id:"favicon-add-cave" %>
-              </div>
             </div>
             <div class="cave-show-wine-description">
               <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
@@ -52,7 +49,9 @@
             <h3><%= bottle.wine.apogee_end %></h3>
           </div>
           </div>
-
+          <div class="take-bottle-out">
+            <%= link_to '<i class="fas fa-minus"></i>'.html_safe, edit_bottle_path(bottle), id:"favicon-add-cave" %>
+          </div>
         </div>
       <% end %>
     <% end %>
