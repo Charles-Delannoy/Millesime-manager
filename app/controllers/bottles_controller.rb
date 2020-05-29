@@ -7,6 +7,14 @@ class BottlesController < ApplicationController
     authorize @bottle
   end
 
+  def show
+    @bottle = Bottle.find(params[:id])
+    @wine = @bottle.wine
+    @assemblages = Assemblage.where(wine: @wine)
+    @pairings = Pairing.where(wine: @wine)
+    authorize @bottle
+  end
+
   def create
     @wine = Wine.find(params['wine_id'])
     @cave = Cave.find(params[:bottle][:cave])

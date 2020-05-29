@@ -1,5 +1,3 @@
-
-
 <div class="wine-show-title">
   <h1><%= @wine.name %> - <%= @wine.millesime %></h1>
 </div>
@@ -30,11 +28,10 @@
       <% end %>
     </div>
   </div>
-    <div class="wine-image">
-      <%= cl_image_tag @wine.photo.key, class: "wine-show-card-img" %>
-    </div>
+  <div class="wine-image">
+    <%= cl_image_tag @wine.photo.key, class: "wine-show-card-img" %>
+  </div>
 </div>
 <div class="wine-show-action">
-  <%= link_to "Ajouter à ma cave", new_wine_bottle_path(@wine), class: "add-wine-to-my-cave-btn" %>
+  <%= link_to "Retirer de ma cave", edit_bottle_path(@bottle), class: "add-wine-to-my-cave-btn" %>
 </div>
-
