@@ -25,6 +25,7 @@
         </div>
 
         <div class="cave-card-element">
+
           <% red_count = cave.bottles.joins(:wine).where(wines: {color: 'Rouge'}).sum(:quantity) %>
           <% if red_count > 0 %>
             <div class="cave-bottle-count">
@@ -63,8 +64,15 @@
         </div>
       </div>
     </div>
+
     <div class="cave-position-edit-favicon">
       <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_cave_path(cave), id:"cave-favicon" %>
+    </div>
+
+    <div class="card-cave-index-empy">
+      <% if red_count == 0 && pink_count == 0 && white_count == 0 %>
+        <%= link_to "Ajouter une bouteille", wines_path, class:"add-bottle" %>
+      <% end %>
     </div>
   </div>
   <% end %>

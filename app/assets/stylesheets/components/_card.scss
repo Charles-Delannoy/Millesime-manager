@@ -103,6 +103,12 @@
     color: $secondary-color;
     opacity: 0.8;
   }
+  .card-cave-index-empy {
+    position: absolute;
+    top: 100px;
+    right: 32px;
+    font-size: 12px;
+  }
 }
 
 .cave-card {
