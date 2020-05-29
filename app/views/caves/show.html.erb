@@ -13,7 +13,7 @@
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
-      <%= link_to "Add some bottles", wines_path, class: 'add-bottle' %>
+      <%= link_to "Ajouter des bouteilles", wines_path, class: 'add-bottle' %>
     </div>
   </div>
 
@@ -24,9 +24,9 @@
     <% @results = @cave.bottles %>
     <p class="no-results">Aucune bouteille ne correspond à votre recherche !</p>
   <% else %>
-    <% @results = @bottles %>
+    <% @results = @bottles%>
   <% end %>
-  <% @results.each do |bottle| %>
+  <% @results.order(:updated_at).reverse.each do |bottle| %>
     <%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
       <% unless bottle.quantity == 0 %>
         <div class="cave-show-wine-card">
@@ -46,9 +46,10 @@
               <h3> <strong>Qty: <%= bottle.quantity %> </strong></h3>
             </div>
 
+
             <% now_diff = Time.now.year - bottle.wine.apogee_start %>
-            <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start %>
-            <% percentage = (apogee_duration == 0) ? 100 : (now_diff.to_f/apogee_duration)*100 %>
+            <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start + 1 %>
+            <% percentage = (now_diff < 0) ? 0 : ((now_diff+1).to_f/apogee_duration)*100 %>
 
             <div class="wine-apogee">
             <h3><%= bottle.wine.apogee_start %></h3>
