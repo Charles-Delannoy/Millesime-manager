@@ -10,7 +10,7 @@
 <% end %>
 
 <% @wines.each do |wine| %>
-<%= link_to wine_path(wine) do %>
+<%= link_to wine_path(wine), class: "wine-index-card-link" do %>
   <div class="wine-index-card">
 
     <div class="wine-image">
