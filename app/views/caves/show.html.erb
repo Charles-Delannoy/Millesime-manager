@@ -18,7 +18,7 @@
 <% else %>
   <% if params[:meal].present? && @bottles.empty? %>
     <% @results = @cave.bottles %>
-    <p class="no-results">Aucunes bouteilles ne corresponds à votre recherche !</p>
+    <p class="no-results">Aucune bouteille ne correspond à votre recherche !</p>
   <% else %>
     <% @results = @bottles %>
   <% end %>
