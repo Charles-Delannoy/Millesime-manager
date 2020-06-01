@@ -2,10 +2,7 @@
   <h1 id="cave-name"><%= @cave.name %></h1>
 </div>
 
-<%= form_tag cave_path(@cave), class: "search-bar", method: :get do %>
-  <%= select_tag "meal", options_from_collection_for_select(@meals, "id", "name"), include_blank: true , class: "meal-filter"%>
-  <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
-<% end %>
+<%= render "cave_filter", cave: @cave %>
 
 <div class="add-wine-from-cave-show">
   <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class:"add-bottle" %>
@@ -13,7 +10,7 @@
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
-<% if !params[:meal].present? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
+<% if !@options.any? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
