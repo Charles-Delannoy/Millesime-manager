@@ -35,6 +35,11 @@
     </div>
 </div>
 <div class="wine-show-action">
-  <%= link_to "Ajouter à ma cave", new_wine_bottle_path(@wine), class: "add-wine-to-my-cave-btn" %>
+  <% if @cave.present? %>
+        <%= link_to "Ajouter à ma cave", new_cave_wine_bottle_path(@cave, @wine), class: "add-wine-to-my-cave-btn" %>
+      <% else %>
+        <%= link_to "Ajouter à ma cave", new_wine_bottle_path(@wine), class: "add-wine-to-my-cave-btn" %>
+  <% raise %>
+      <% end %>
 </div>
 
