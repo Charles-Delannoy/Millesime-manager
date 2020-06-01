@@ -3,11 +3,14 @@
     <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "card-cave-img"%>
       <% else %>
-        <%= image_tag("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1523284008/vewklncjschzufwaixd6.jpg", alt: "profile picture", class: "profil-img") %>
+        <%= image_tag('profile-pic.jpg', alt: "profile picture", class: "profil-img") %>
     <% end %>
   </div>
   <div class="profile-name">
     <p><%= current_user.email %></p>
+  </div>
+  <div class="position-edit-favicon">
+    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, "#", id:"favicon-profile-edit" %>
   </div>
 </div>
 

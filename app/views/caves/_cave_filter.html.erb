@@ -2,6 +2,6 @@
   <%= select_tag "meal", options_from_collection_for_select(@meals, "id", "name"), :prompt => "Selectionner un plat" , class: "bottles-filter"%>
   <%= select_tag "region", options_from_collection_for_select(@regions, "id", "name"), :prompt => "Selectionner une région" , class: "bottles-filter"%>
   <%= select_tag "appelation", options_from_collection_for_select(@appelations, "id", "name"), :prompt => "Selectionner une appelation" , class: "bottles-filter"%>
-<!--   <%= select_tag "couleur", raw("<option>Rouge</option><option>Rosé</option><option>Blanc</option>"), include_blank: true , class: "bottles-filter" %>  -->
+<!--   <%#= select_tag "couleur", raw("<option>Rouge</option><option>Rosé</option><option>Blanc</option>"), include_blank: true , class: "bottles-filter" %>  -->
   <%= submit_tag "Trouvez votre bouteille", class: "filter-btn", data: {turbolinks: "false"} %>
 <% end %>
