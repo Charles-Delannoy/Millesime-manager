@@ -206,3 +206,66 @@
   margin: 0 10px;
   object-fit: cover;
 }
+
+// CARD - PENDING REVIEWS
+
+.create-history-link {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+// .review-wine-information-card {
+
+//   // position: relative;
+//  }
+
+
+
+.review-card {
+  display: flex;
+  background-color: $light-gray;
+  height: 100px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  position: relative;
+  margin-top: 25px;
+  i {
+    color: $primary-color;
+    font-size: 30px;
+  }
+  i.liked {
+    color: $green-contrasting;
+  }
+  .review-wine-index-img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.review-wine-information-card {
+  margin-left: 80px;
+  width: 100%;
+}
+
+.review-wine-information-title {
+  h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.review-wine-information-like {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+
+.create-history-link {
+  position: fixed;
+  bottom: 70px;
+}
+
+

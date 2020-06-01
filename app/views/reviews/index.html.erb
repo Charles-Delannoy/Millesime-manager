@@ -1,21 +1,45 @@
-<h1>Evaluations en attente</h1>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li>
-      <%= review.wine.name %>
-      <%= simple_form_for [review] do |f| %>
-        <%= f.hidden_field :liked, value: true %>
-        <%= f.hidden_field :id, value: review.id %>
-        <%= f.submit "j'ai aimé", class: "my-btn btn-card booking-validation-btn"%>
-      <% end %>
-      <%= simple_form_for [review] do |f| %>
-        <%= f.hidden_field :liked, value: false %>
-        <%= f.hidden_field :id, value: review.id %>
-        <%= f.submit "je n'ai pas aimé", class: "my-btn btn-card booking-validation-btn"%>
-      <% end %>
-    </li>
+<div class="container-reviews">
+  <div class="review-page-title">
+    <h1> Mes évaluations en attente </h1>
+  </div>
+</div>
+
+
+<div class="review-cards">
+ <% @reviews.each do |review| %>
+  <div class="review-card">
+      <div class="review-wine-image">
+        <%= cl_image_tag review.wine.photo.key, class: "review-wine-index-img" %>
+      </div>
+      <div class="review-wine-information-card">
+        <div class="review-wine-information-title">
+          <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
+        </div>
+        <div class="review-wine-information-like">
+          <%= simple_form_for [review] do |f| %>
+            <%= f.hidden_field :liked, value: true %>
+            <%= f.hidden_field :id, value: review.id %>
+            <%= button_tag type: "submit", class: "my-btn btn-card booking-validation-btn" do %>
+              <i class="fas fa-thumbs-up liked"></i>
+            <% end %>
+          <% end %>
+          <%= simple_form_for [review] do |f| %>
+            <%= f.hidden_field :liked, value: false %>
+            <%= f.hidden_field :id, value: review.id %>
+            <%= button_tag type: "submit", class: "my-btn btn-card booking-validation-btn" do %>
+              <i class="fas fa-thumbs-down"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
 
-<%= link_to "Historique des vins bus", history_reviews_path, class: "add-wine-to-my-cave-btn" %>
+  <div class="create-history-link">
+    <%= link_to "Historique des vins bus", history_reviews_path, class: "add-wine-to-my-cave-btn" %>
+  </div>
+</div>
+
+
+
