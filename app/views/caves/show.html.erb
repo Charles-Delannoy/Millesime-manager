@@ -27,8 +27,10 @@
     <% else %>
       <div class="wine-ribbon">
         <% @redbottles.each do |redbottle| %>
+          <div class="red-wine-card">
           <%= render "cave_wine_card", bottle: redbottle %>
         <% end %>
+          </div>
       </div>
     <% end %>
   </div>
@@ -40,8 +42,10 @@
     <% else %>
       <div class="wine-ribbon">
         <% @whitebottles.each do |whitebottle| %>
+          <div class="white-wine-card">
           <%= render "cave_wine_card", bottle: whitebottle %>
         <% end %>
+          </div>
       </div>
     <% end %>
   </div>
@@ -53,8 +57,10 @@
     <% else %>
       <div class="wine-ribbon">
         <% @pinkbottles.each do |pinkbottle| %>
+          <div class="pink-wine-card">
           <%= render "cave_wine_card", bottle: pinkbottle %>
         <% end %>
+          </div>
       </div>
     <% end %>
   </div>

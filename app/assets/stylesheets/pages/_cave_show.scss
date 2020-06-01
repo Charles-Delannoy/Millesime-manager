@@ -19,3 +19,14 @@
   background-color: $light-gray;
 }
 
+.wine-ribbon {
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.red-wine-card, .white-wine-card, .pink-wine-card {
+  display: flex;
+}
