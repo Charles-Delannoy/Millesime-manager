@@ -11,7 +11,8 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.find(params['id'])
+    @cave = Cave.find(params[:cave_id]) if params[:cave_id].present?
+    @wine = Wine.find(params[:id])
     @assemblages = Assemblage.where(wine: @wine)
     @pairings = Pairing.where(wine: @wine)
     authorize @wine
