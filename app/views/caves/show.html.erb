@@ -9,7 +9,7 @@
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
-<% if !params[:meal].present? && (@bottles.empty? || bottle_count == 0) %>
+<% if !params[:meal].present? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
@@ -20,53 +20,50 @@
 
 
 <% else %>
-  <% if params[:meal].present? && @bottles.empty? %>
-    <% @results = @cave.bottles %>
-    <p class="no-results">Aucune bouteille ne correspond à votre recherche !</p>
-  <% else %>
-    <% @results = @bottles%>
-  <% end %>
-  <% @results.order(:updated_at).reverse.each do |bottle| %>
-    <%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
-      <% unless bottle.quantity == 0 %>
-        <div class="cave-show-wine-card cave-card-color">
-
-          <div class="wine-image">
-            <%= cl_image_tag bottle.wine.photo.key, class: "cave-show-wine-img" %>
-
+  <div class="wine-section-color-red">
+    <h1>Mes vins rouges</h1>
+    <% if @redbottles.empty? %>
+      <p class="no-results">Aucune bouteille de rouge ne correspond à votre recherche !</p>
+    <% else %>
+      <div class="wine-ribbon">
+        <% @redbottles.each do |redbottle| %>
+          <div class="red-wine-card">
+          <%= render "cave_wine_card", bottle: redbottle %>
+        <% end %>
           </div>
-
-          <div class="cave-show-wine-information">
-            <div class="cave-show-wine-title">
-              <h1><strong><%= bottle.wine.name %></strong></h1>
-            </div>
-            <div class="cave-show-wine-description">
-              <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
-              <h3> <strong>Appelation:</strong> <%= bottle.wine.appelation.name %> </h3>
-              <h3> <strong>Qty: <%= bottle.quantity %> </strong></h3>
-            </div>
-
-
-            <% now_diff = Time.now.year - bottle.wine.apogee_start %>
-            <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start + 1 %>
-            <% percentage = (now_diff < 0) ? 0 : ((now_diff+1).to_f/apogee_duration)*100 %>
-
-            <div class="wine-apogee">
-            <h3><%= bottle.wine.apogee_start %></h3>
-            <div class="progress">
-              <div class="progress-bar" style="width:<%= percentage.to_i %>%;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div>
-            <h3><%= bottle.wine.apogee_end %></h3>
-          </div>
-          </div>
-          <div class="take-bottle-out">
-            <%= link_to '<i class="fas fa-minus"></i>'.html_safe, edit_bottle_path(bottle), id:"favicon-add-cave" %>
-          </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="wine-section-color-white">
+    <h1>Mes vins blancs</h1>
+    <% if @whitebottles.empty? %>
+      <p class="no-results">Aucune bouteille de blanc ne correspond à votre recherche !</p>
+    <% else %>
+      <div class="wine-ribbon">
+        <% @whitebottles.each do |whitebottle| %>
+          <div class="white-wine-card">
+          <%= render "cave_wine_card", bottle: whitebottle %>
+        <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="wine-section-color-pink">
+    <h1>Mes vins rosés</h1>
+    <% if @pinkbottles.empty? %>
+      <p class="no-results">Aucune bouteille de rosé ne correspond à votre recherche !</p>
+    <% else %>
+      <div class="wine-ribbon">
+        <% @pinkbottles.each do |pinkbottle| %>
+          <div class="pink-wine-card">
+          <%= render "cave_wine_card", bottle: pinkbottle %>
+        <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 
