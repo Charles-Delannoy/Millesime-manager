@@ -1,3 +1,16 @@
-<h1>Profile</h1>
+<div class="profile-header">
+  <div class="profile-picture">
+    <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "card-cave-img"%>
+      <% else %>
+        <%= image_tag("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1523284008/vewklncjschzufwaixd6.jpg", alt: "profile picture", class: "profil-img") %>
+    <% end %>
+  </div>
+  <div class="profile-name">
+    <p><%= current_user.email %></p>
+  </div>
+</div>
 
-<p><%= current_user.email %></p>
+<div class="log-out">
+  <%#= link_to "Sign out", destroy_user_session_path, method: :delete, class:"sign-out-btn" %>
+</div>
