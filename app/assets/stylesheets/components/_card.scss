@@ -210,16 +210,10 @@
 // CARD - PENDING REVIEWS
 
 .create-history-link {
-  margin-bottom: 10px;
   text-align: center;
+  position: fixed;
+  bottom: 80px;
 }
-
-// .review-wine-information-card {
-
-//   // position: relative;
-//  }
-
-
 
 .review-card {
   display: flex;
@@ -262,10 +256,5 @@
   margin-top: 10px;
 }
 
-
-.create-history-link {
-  position: fixed;
-  bottom: 70px;
-}
-
+// END REVIEWS INDEX
 
