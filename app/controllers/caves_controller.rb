@@ -12,17 +12,21 @@ class CavesController < ApplicationController
   end
 
   def show
-    @meals = Meal.all
-    @appelations = Appelation.all
-    @regions = Region.all
-    if params[:meal].present?
-      @redbottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Rouge', pairings: {meal_id: params[:meal]}})
-      @whitebottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Blanc', pairings: {meal_id: params[:meal]}})
-      @pinkbottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Rosé', pairings: {meal_id: params[:meal]}})
+    @meals = Meal.order(name: :asc)
+    @appelations = Appelation.order(name: :asc)
+    @regions = Region.order(name: :asc)
+    @options = {}
+    @options[:pairings] = {meal_id: params[:meal]} if params[:meal].present?
+    @options[:appelations] = {region_id: params[:region]} if params[:region].present?
+    @options[:appelation_id] = params[:appelation] if params[:appelation].present?
+    if @options.any?
+      @redbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rouge'))
+      @whitebottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Blanc'))
+      @pinkbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rosé'))
     else
-      @redbottles = @cave.bottles.joins(:wine).where(wines: {color: 'Rouge'})
-      @whitebottles = @cave.bottles.joins(:wine).where(wines: {color: 'Blanc'})
-      @pinkbottles = @cave.bottles.joins(:wine).where(wines: {color: 'Rosé'})
+      @redbottles = @cave.bottles.includes(:wine).where(wines: {color: 'Rouge'})
+      @whitebottles = @cave.bottles.includes(:wine).where(wines: {color: 'Blanc'})
+      @pinkbottles = @cave.bottles.includes(:wine).where(wines: {color: 'Rosé'})
     end
     authorize @cave
   end

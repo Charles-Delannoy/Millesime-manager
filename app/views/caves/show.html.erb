@@ -10,7 +10,7 @@
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
-<% if !params[:meal].present? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
+<% if !@options.any? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
