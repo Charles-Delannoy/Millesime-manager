@@ -1,0 +1,19 @@
+<h1>Historique des vins bus</h1>
+
+<h3>Les vins à mon goût</h3>
+<ul>
+  <% @liked_reviews.each do |review| %>
+    <li>
+      <%= review.wine.name %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Les vins que je n'ai pas apprécié</h3>
+<ul>
+  <% @unliked_reviews.each do |review| %>
+    <li>
+      <%= review.wine.name %>
+    </li>
+  <% end %>
+</ul>

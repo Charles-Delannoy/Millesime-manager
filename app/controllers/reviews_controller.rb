@@ -11,6 +11,12 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path
   end
 
+  def history
+    @liked_reviews = Review.where(user: current_user).where(liked: true)
+    @unliked_reviews = Review.where(user: current_user).where(liked: false)
+    authorize @liked_reviews
+  end
+
   private
 
   def review_params

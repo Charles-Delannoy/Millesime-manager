@@ -1,4 +1,4 @@
-<h1>Evalutations en attente</h1>
+<h1>Evaluations en attente</h1>
 
 <ul>
   <% @reviews.each do |review| %>
@@ -17,3 +17,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Historique des vins bus", history_reviews_path, class: "add-wine-to-my-cave-btn" %>
