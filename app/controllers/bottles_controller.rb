@@ -44,7 +44,7 @@ class BottlesController < ApplicationController
   end
 
   def toreview
-    @bottles = Bottle.where(:created_at != :updated_at && :liked.nil?)
+    @bottles = Bottle.unchanged
     authorize @bottles
   end
 
