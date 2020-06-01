@@ -52,7 +52,7 @@
       <% if @cave.present? %>
         <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cave_wine_bottle_path(@cave, wine), id:"favicon-add-cave" %>
       <% else %>
-        <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_wine_bottle_path(wine), id:"favicon-add-cave" %>
+        <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_wine_bottle_path(wine), id:"favicon-add-cave"%>
       <% end %>
     </div>
   </div>

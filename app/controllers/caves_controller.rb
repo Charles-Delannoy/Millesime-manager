@@ -13,6 +13,8 @@ class CavesController < ApplicationController
 
   def show
     @meals = Meal.all
+    @appelations = Appelation.all
+    @regions = Region.all
     if params[:meal].present?
       @redbottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Rouge', pairings: {meal_id: params[:meal]}})
       @whitebottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Blanc', pairings: {meal_id: params[:meal]}})

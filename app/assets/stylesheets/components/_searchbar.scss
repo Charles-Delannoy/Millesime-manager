@@ -27,3 +27,30 @@
   padding: 10px;
   margin: 20px 0;
 }
+
+
+// filter on cave show
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin: 10px auto;
+  border-radius: 5px;
+  .search-wine {
+    flex-grow: 1;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid $primary-color;
+    padding-left: 5px;
+    text-align: center;
+  }
+  .bottles-filter {
+    flex-grow: 1;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 5px;
+    color: gray;
+  }
+}
