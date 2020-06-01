@@ -26,11 +26,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import { filtersModal } from '../plugins/modal_form';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  filtersModal();
   // Call your functions here, e.g:
   // initSelect2();
 });

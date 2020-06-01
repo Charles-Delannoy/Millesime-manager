@@ -2,10 +2,8 @@
   <h1 id="cave-name"><%= @cave.name %></h1>
 </div>
 
-<%= render "cave_filter", cave: @cave %>
-
-<div class="add-wine-from-cave-show">
-  <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class:"add-bottle" %>
+<div id='filters' class='d-none'>
+  <%= render "cave_filter", cave: @cave %>
 </div>
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
@@ -19,6 +17,10 @@
   </div>
 
 <% else %>
+<div class="add-wine-from-cave-show">
+  <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class:"add-bottle" %>
+  <%= link_to "show/hide filters", '#', id:"filter-button", class:"add-bottle" %>
+</div>
   <div class="wine-section-color-red">
     <h1>Mes vins rouges</h1>
     <% if @redbottles.empty? %>

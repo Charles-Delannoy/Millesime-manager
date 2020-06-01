@@ -127,7 +127,7 @@
 
 .add-wine-from-cave-show {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 16px 0 8px 0;
   .add-bottle{
     background-color: $secondary-color;
