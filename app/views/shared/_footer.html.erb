@@ -1,6 +1,6 @@
 <div class="footer">
   <div class="footer-links">
-    <%= link_to "#", id: "user-img" do %>
+    <%= link_to profile_path(current_user), id: "user-img" do %>
     <%= image_tag("user.svg") %>
     <% end %>
     <%= link_to wines_path, id: "search-logo" do %>
