@@ -112,3 +112,15 @@
 }
 
 
+// Wine Show
+
+.add-wine-from-cave-show {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 8px 0;
+  .add-bottle{
+    background-color: $secondary-color;
+    font-size: 12px;
+  }
+}
+

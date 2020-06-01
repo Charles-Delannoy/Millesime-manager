@@ -7,17 +7,19 @@
   <%= submit_tag "Chercher!", class: "my-btn search-btn", data: {turbolinks: "false"} %>
 <% end %>
 
+<div class="add-wine-from-cave-show">
+  <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class:"add-bottle" %>
+</div>
+
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
 <% if !params[:meal].present? && (@redbottles.empty? && @whitebottles.empty? && @pinkbottles.empty?) || bottle_count == 0 %>
   <div class="empty-cave">
     <div class="empty-cave-content">
       <p>Votre cave est vide</p>
-      <%= link_to "Ajouter des bouteilles", wines_path, class: 'add-bottle' %>
+      <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class: 'add-bottle' %>
     </div>
   </div>
-
-
 
 <% else %>
   <div class="wine-section-color-red">
