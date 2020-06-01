@@ -43,6 +43,11 @@ class BottlesController < ApplicationController
     @bottle.save ? (redirect_to cave_path(@bottle.cave)) : (render :new)
   end
 
+  def toreview
+    @bottles = Bottle.where(:created_at != :updated_at && :liked.nil?)
+    authorize @bottles
+  end
+
   private
 
   def bottle_params
