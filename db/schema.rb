@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_092654) do
+ActiveRecord::Schema.define(version: 2020_06_01_092032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,10 +58,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_092654) do
     t.bigint "wine_id", null: false
     t.bigint "cave_id", null: false
     t.integer "quantity"
-    t.text "comment"
     t.date "apogee_start"
     t.date "apogee_end"
-    t.string "liked"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cave_id"], name: "index_bottles_on_cave_id"
@@ -110,6 +108,17 @@ ActiveRecord::Schema.define(version: 2020_05_28_092654) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "wine_id", null: false
+    t.boolean "liked"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["wine_id"], name: "index_reviews_on_wine_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -149,6 +158,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_092654) do
   add_foreign_key "caves", "users"
   add_foreign_key "pairings", "meals"
   add_foreign_key "pairings", "wines"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "wines"
   add_foreign_key "wines", "appelations"
   add_foreign_key "wines", "castles"
 end

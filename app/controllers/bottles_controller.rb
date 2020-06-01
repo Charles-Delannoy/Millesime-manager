@@ -39,13 +39,10 @@ class BottlesController < ApplicationController
   def update
     @bottle = Bottle.find(params[:id])
     authorize @bottle
+    existing_review = Review.where(user: current_user).where(wine: @bottle.wine)
+    @review = Review.create(user: current_user, wine: @bottle.wine) if existing_review.empty?
     @bottle.quantity -= bottle_params[:quantity].to_i
     @bottle.save ? (redirect_to cave_path(@bottle.cave)) : (render :new)
-  end
-
-  def toreview
-    @bottles = Bottle.unchanged
-    authorize @bottles
   end
 
   private
