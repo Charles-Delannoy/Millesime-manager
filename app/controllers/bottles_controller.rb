@@ -1,9 +1,10 @@
 class BottlesController < ApplicationController
 
   def new
+    @cave = Cave.find(params[:cave_id]) if params[:cave_id]
     @caves = Cave.where(user: current_user)
-    @wine = Wine.find(params['wine_id'])
-    @bottle = Bottle.new()
+    @wine = Wine.find(params[:wine_id])
+    @bottle = Bottle.new(cave: @cave)
     authorize @bottle
   end
 
@@ -16,8 +17,8 @@ class BottlesController < ApplicationController
   end
 
   def create
-    @wine = Wine.find(params['wine_id'])
-    @cave = Cave.find(params[:bottle][:cave])
+    @wine = Wine.find(params[:wine_id])
+    @cave = Cave.find(params[:bottle][:cave_id])
     existing_bottle = @cave.bottles.where(wine: @wine)
     if existing_bottle.empty?
       @bottle = Bottle.new(bottle_params)

@@ -1,5 +1,5 @@
-<%= simple_form_for [@wine, @bottle] do |f| %>
-<%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..120), selected: 1 %>
-<%= f.input :cave, :collection => @caves %>
-<%= f.submit "Ajouter à ma cave", class:'take-bottle-out-btn'%>
+<%= simple_form_for [wine, bottle] do |f| %>
+  <%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..120), selected: 1 %>
+  <%= f.association :cave, collection: current_user.caves %>
+  <%= f.submit "Ajouter à ma cave", class:'take-bottle-out-btn'%>
 <% end %>

@@ -71,7 +71,7 @@
 
     <div class="card-cave-index-empy">
       <% if red_count == 0 && pink_count == 0 && white_count == 0 %>
-        <%= link_to "Ajouter une bouteille", wines_path, class:"add-bottle" %>
+        <%= link_to "Ajouter une bouteille", cave_wines_path(cave), class:"add-bottle" %>
       <% end %>
     </div>
   </div>

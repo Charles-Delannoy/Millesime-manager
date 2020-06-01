@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :caves, only: [:index, :new, :create, :show, :update, :edit]
+  resources :caves, only: [:index, :new, :create, :show, :update, :edit] do
+    resources :wines, only: [:index, :show] do
+      resources :bottles, only: [:new, :create]
+    end
+  end
   resources :wines, only: [:index, :show] do
     resources :bottles, only: [:new, :create]
   end
