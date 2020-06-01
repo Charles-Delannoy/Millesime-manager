@@ -14,9 +14,13 @@ class CavesController < ApplicationController
   def show
     @meals = Meal.all
     if params[:meal].present?
-      @bottles = @cave.bottles.wine_apogee.joins(wine: :pairings).where(wines: {pairings: {meal_id: params[:meal]}})
+      @redbottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Rouge', pairings: {meal_id: params[:meal]}})
+      @whitebottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Blanc', pairings: {meal_id: params[:meal]}})
+      @pinkbottles = @cave.bottles.joins(wine: :pairings).where(wines: {color: 'Rosé', pairings: {meal_id: params[:meal]}})
     else
-      @bottles = @cave.bottles
+      @redbottles = @cave.bottles.joins(:wine).where(wines: {color: 'Rouge'})
+      @whitebottles = @cave.bottles.joins(:wine).where(wines: {color: 'Blanc'})
+      @pinkbottles = @cave.bottles.joins(:wine).where(wines: {color: 'Rosé'})
     end
     authorize @cave
   end
