@@ -218,10 +218,10 @@
 .review-card {
   display: flex;
   background-color: $light-gray;
-  height: 100px;
+  height: 120px;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   position: relative;
-  margin-top: 25px;
+  margin-top: 35px;
   i {
     color: $primary-color;
     font-size: 30px;
@@ -231,7 +231,7 @@
   }
   .review-wine-index-img {
     width: 80px;
-    height: 120px;
+    height: 140px;
     object-fit: cover;
     position: absolute;
     bottom: 0;
@@ -241,19 +241,23 @@
 .review-wine-information-card {
   margin-left: 80px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .review-wine-information-title {
   h1 {
     font-size: 18px;
     text-align: center;
+    padding-right: 5px;
+
   }
 }
 
 .review-wine-information-like {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
 }
 
 // END REVIEWS INDEX
