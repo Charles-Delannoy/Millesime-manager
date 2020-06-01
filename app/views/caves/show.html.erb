@@ -29,7 +29,7 @@
   <% @results.order(:updated_at).reverse.each do |bottle| %>
     <%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
       <% unless bottle.quantity == 0 %>
-        <div class="cave-show-wine-card">
+        <div class="cave-show-wine-card cave-card-color">
 
           <div class="wine-image">
             <%= cl_image_tag bottle.wine.photo.key, class: "cave-show-wine-img" %>

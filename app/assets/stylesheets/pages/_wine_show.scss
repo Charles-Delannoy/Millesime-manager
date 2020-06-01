@@ -1,11 +1,15 @@
 .wine-show-title {
-  width: 60vw;
-  margin: 25px 0;
+  width: 224px;
+  margin-top: 55px;
+  margin-bottom: 45px;
+  margin-left: 120px;
   h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
     width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
   }
 }
 
@@ -23,30 +27,41 @@
 .wine-show-card {
   background-color: $light-gray;
   position: relative;
-  margin: 35px 0;
+  margin: 0px 0 35px 0;
   padding: 10px 0;
   .wine-show-section {
-    width: 210px;
+    width: 200px;
     margin-left: 5px;
     margin-bottom: 8px;
+    margin-left: 155px;
+    h3, p {
+      padding-left: 8px;
+    }
   }
   .wine-show-card-img {
     position: absolute;
-    bottom: 25px ;
-    right: -105px;
+    bottom: 10px ;
+    right: 109px;
     object-fit: none;
   }
   p {
     margin-bottom: 0;
+    font-size: 15px;
+    padding-bottom: 0px;
+    font-weight: lighter;
+
   }
   h1 {
     font-size: 30px;
     font-weight: bold;
   }
   h3 {
-    font-size: 20px;
-    border-bottom: 1px solid black;
-    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 3px solid white;
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding-bottom: 4px;
   }
 }
 
