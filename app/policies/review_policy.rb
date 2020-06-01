@@ -8,6 +8,10 @@ class ReviewPolicy < ApplicationPolicy
     record.user = user
   end
 
+  def history?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
