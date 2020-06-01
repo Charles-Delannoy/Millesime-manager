@@ -262,3 +262,62 @@
 
 // END REVIEWS INDEX
 
+// HISTORY CARD
+.liked-history-card {
+  background-color: #8bd1c087;
+  height: 250px;
+  width: 150px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  .history-wine-img {
+    width: 80px;
+    height: 160px;
+    object-fit: cover;
+    // position: absolute;
+    // margin-bottom: 130px;
+  }
+}
+
+.liked-history-wine-information-title {
+  h1 {
+    font-size: 18px;
+    text-align: center;
+    // bottom: fixed;
+  }
+}
+
+.liked-history-cards, .unliked-history-cards {
+  display: flex;
+  overflow: auto;
+}
+
+.unliked-history-card {
+  background-color: #E8D3D7;
+  height: 250px;
+  width: 150px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  // position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  .history-wine-img {
+    width: 80px;
+    height: 160px;
+    object-fit: cover;
+    // position: absolute;
+  }
+}
+
+.unliked-history-wine-information-title {
+  h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.unliked-title {
+
+  width: 100%;
+  justify-content: center;
+}
