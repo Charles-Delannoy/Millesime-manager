@@ -15,3 +15,16 @@
   width: 100vw;
   overflow: hidden;
 }
+
+.review-page-title {
+  height: 40px;
+  background-color: $light-gray;
+  margin-bottom: 10px;
+  text-align: center;
+  h1 {
+    font-size: 20px;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

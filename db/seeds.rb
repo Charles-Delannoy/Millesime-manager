@@ -18,6 +18,8 @@ puts "Destroy meals"
 Meal.destroy_all
 puts "Destroy bottles"
 Bottle.destroy_all
+puts "Destroy reviews"
+Review.destroy_all
 puts "Destroy wines"
 Wine.destroy_all
 puts "Destroy castles"
