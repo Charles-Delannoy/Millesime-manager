@@ -1,0 +1,19 @@
+<h1>Evalutations en attente</h1>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.wine.name %>
+      <%= simple_form_for [review] do |f| %>
+        <%= f.hidden_field :liked, value: true %>
+        <%= f.hidden_field :id, value: review.id %>
+        <%= f.submit "j'ai aimé", class: "my-btn btn-card booking-validation-btn"%>
+      <% end %>
+      <%= simple_form_for [review] do |f| %>
+        <%= f.hidden_field :liked, value: false %>
+        <%= f.hidden_field :id, value: review.id %>
+        <%= f.submit "je n'ai pas aimé", class: "my-btn btn-card booking-validation-btn"%>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

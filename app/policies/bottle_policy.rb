@@ -20,6 +20,10 @@ class BottlePolicy < ApplicationPolicy
     record.cave.user = user
   end
 
+  def toreview?
+    true
+  end
+
 
   class Scope < Scope
     def resolve
