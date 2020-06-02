@@ -42,7 +42,9 @@
   <% end %>
 </div>
   <div class="wine-section-color-red">
-    <h1>Mes vins rouges</h1>
+    <div class="title-wine-color">
+      <h1>Mes vins rouges</h1>
+    </div>
     <% if @redbottles.empty? %>
       <p class="no-results">Aucune bouteille de rouge ne correspond à votre recherche !</p>
     <% else %>
@@ -57,7 +59,9 @@
   </div>
 
   <div class="wine-section-color-white">
-    <h1>Mes vins blancs</h1>
+    <div class="title-wine-color">
+      <h1>Mes vins blancs</h1>
+    </div>
     <% if @whitebottles.empty? %>
       <p class="no-results">Aucune bouteille de blanc ne correspond à votre recherche !</p>
     <% else %>
@@ -72,7 +76,9 @@
   </div>
 
   <div class="wine-section-color-pink">
-    <h1>Mes vins rosés</h1>
+    <div class="title-wine-color">
+      <h1>Mes vins rosés</h1>
+    </div>
     <% if @pinkbottles.empty? %>
       <p class="no-results">Aucune bouteille de rosé ne correspond à votre recherche !</p>
     <% else %>

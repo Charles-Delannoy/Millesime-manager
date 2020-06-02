@@ -1,0 +1,42 @@
+<div class="profile-header">
+  <div class="profile-picture">
+    <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "profil-img"%>
+      <% else %>
+          <%= image_tag('profile-pic.jpg', alt: "profile picture", class: "profil-img") %>
+    <% end %>
+  </div>
+  <div class="profile-name">
+    <% if current_user.first_name.present? %>
+      <p>Bienvenue <%= current_user.first_name %></p>
+    <% else %>
+      <p>Bienvenue <%= current_user.email %></p>
+    <% end %>
+    <div class="position-edit-favicon">
+      <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_user_registration_path(current_user), id:"favicon-profile-edit" %>
+    </div>
+  </div>
+</div>
+
+<div class="list-profil">
+  <div class="card-profil-content">
+    <% if current_user.caves.empty? %>
+      <%= link_to "Créez votre cave", new_cave_path(current_user), id:"mes-caves-profile", class:"card-link-profile" %>
+    <% elsif current_user.caves.size == 1 %>
+        <%= link_to "Accedez à votre cave.".html_safe, caves_path(current_user), class:"card-link-profile" %>
+    <% else %>
+      <%= link_to "Accedez à vos #{current_user.caves.size} caves.".html_safe, caves_path(current_user), class:"card-link-profile" %>
+    <% end %>
+  </div>
+  <div class="card-profil-content">
+    <%= link_to "Accédez à votre historique de vins", history_reviews_path(current_user), class:"card-link-profile" %>
+  </div>
+</div>
+<hr>
+<div class="log-out">
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"sign-out-btn" %>
+</div>
+<div id="alcool">
+  <p>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+</div>
+

@@ -15,6 +15,6 @@ Rails.application.routes.draw do
       get :history
     end
   end
-  get '/profile', to: 'profiles#show'
+  resources :profiles, only: [:index, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

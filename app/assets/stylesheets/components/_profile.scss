@@ -1,0 +1,93 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  background-color: $light-gray;
+  border-radius: 4px;
+  margin: 30px auto;
+  .profil-img {
+    margin: 10px 8px;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .4);
+    object-fit: cover;
+  }
+  .profile-name{
+    margin: 20px 0;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.8;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+    padding: 8px 10px;
+    margin: 0 auto;
+   }
+  }
+  .position-edit-favicon {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: $green-contrasting;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:focus {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+#favicon-profile-edit {
+  font-size: 18px;
+  color: white;
+}
+
+.list-profil {
+  margin: 80px auto;
+  .card-link-profile {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: $light-green;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: black;
+    opacity: 0.8;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    &:focus {
+      opacity: 1;
+      text-decoration: none;
+      background-color: $green-contrasting;
+    }
+  }
+}
+
+#alcool {
+  display: flex;
+  padding: 30px;
+  height: 100px;
+  background-color: $secondary-color;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 60px;
+  left: 0px;
+  p {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+  }
+}
+
+.log-out {
+  margin: 50px 0;
+  text-align: center;
+}
+

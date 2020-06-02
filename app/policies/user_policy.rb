@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
 
-  def show?
-    record == user
+  def index?
+    true
   end
 
   class Scope < Scope

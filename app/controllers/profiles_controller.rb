@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
 
-  def show
-    authorize current_user
+  def index
+    policy_scope(User)
+    @cave = Cave.find(params[:cave_id]) if params[:cave_id].present?
   end
 
 end
