@@ -2,7 +2,7 @@
     <h1>Tous nos vins</h1>
   </div>
 
-<%= form_tag wines_path, class: "search-bar", method: :get do %>
+<%= form_tag @cave.present? ? cave_wines_path : wines_path, class: "search-bar", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "search-wine",
