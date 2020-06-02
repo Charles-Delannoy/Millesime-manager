@@ -1,4 +1,5 @@
 .profile-header {
+  position: relative;
   text-align: center;
   margin: 20px 30px;
   .profil-img {
@@ -7,11 +8,77 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .4);
     object-fit: cover;
   }
   .profile-name{
-
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0.8;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .position-edit-favicon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: $green-contrasting;
   }
 }
 
-// Profil img
+#favicon-profile-edit {
+  font-size: 18px;
+  color: white;
+}
+
+.list-profil {
+  margin: 50px 0px;
+  .card-link-profile {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: $light-green;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: black;
+    opacity: 0.8;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    &:focus {
+      opacity: 1;
+      text-decoration: none;
+      background-color: $green-contrasting;
+    }
+  }
+}
+
+#alcool {
+  display: flex;
+  padding: 30px;
+  height: 100px;
+  background-color: $secondary-color;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 60px;
+  left: 0px;
+  p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.log-out {
+  margin: 70px 0;
+  text-align: center;
+}
+
