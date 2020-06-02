@@ -7,34 +7,40 @@
 
 
 <h3>Les vins à mon goût</h3>
+
 <div class="liked-history-cards">
     <% @liked_reviews.each do |review| %>
-    <div class="liked-history-card">
+    <div class="container-card">
       <div class="liked-history-wine-image">
-        <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
+          <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
       </div>
-      <div class="liked-title">
-         <div class="liked-history-wine-information-title">
-            <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
-          </div>
+      <div class="liked-history-card">
         </div>
+        <div class="liked-title">
+           <div class="liked-history-wine-information-title">
+              <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
+            </div>
+          </div>
       </div>
     <% end %>
   </div>
 
 
+
 <h3>Les vins - </h3>
 <div class="unliked-history-cards">
   <% @unliked_reviews.each do |review| %>
-    <div class="unliked-history-card">
+    <div class="container-card">
       <div class="unliked-history-wine-image">
         <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
+      </div>
+      <div class="unliked-history-card">
       </div>
       <div class="unliked-title">
       <div class="unliked-history-wine-information-title">
       <h1><%= review.wine.name %></h1>
       </div>
-    </div>
+      </div>
     </div>
   <% end %>
 </div>
