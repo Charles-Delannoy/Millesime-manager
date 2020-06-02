@@ -11,7 +11,7 @@ const dynaFilter = () => {
       });
       console.log(filteredApp);
       appelationSelect.innerHTML = `
-      <option>Selectionner une appelation</option>\n
+      <option value="">Selectionner une appelation</option>\n
       ${buildOptions(filteredApp)};
       `
     });
