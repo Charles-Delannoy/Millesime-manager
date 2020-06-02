@@ -1,0 +1,42 @@
+<div class="profile-header">
+  <div class="profile-picture">
+    <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "card-cave-img"%>
+      <% else %>
+        <%= link_to edit_profile_path(current_user) do %>
+          <%= image_tag('profile-pic.jpg', alt: "profile picture", class: "profil-img") %>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="profile-name">
+    <% if current_user.first_name.present? %>
+      <%= current_user.first_name %>
+    <% else %>
+      <p><%= current_user.email %></p>
+    <% end %>
+  </div>
+  <div class="position-edit-favicon">
+    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, "#", id:"favicon-profile-edit" %>
+  </div>
+</div>
+
+<div class="list-action">
+  <div class="mes-caves">
+    <%= link_to "mes caves", caves_path(current_user), id:"mes-caves-profile" %>
+    <p>vous avez <%= current_user.caves.size %> caves.</p>
+  </div>
+  <div class="mon-hictorique">
+    <%= link_to "Mon historique de vin", history_reviews_path(current_user), id:"vin-historique-profile" %>
+  </div>
+  <div class="mes-vins">
+    <%= link_to "Explorez nos vins", wines_path, id:"mes-vins-profile"  %>
+  </div>
+</div>
+<hr>
+<div class="alcool">
+  <p>L'abus d'alcool est dangereux pour la santé. sachez consommer avec modération.</p>
+</div>
+
+<div class="log-out">
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"sign-out-btn" %>
+</div>
