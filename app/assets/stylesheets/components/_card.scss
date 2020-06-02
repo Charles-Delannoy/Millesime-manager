@@ -266,10 +266,9 @@
 
 .liked-history-card {
   grid-area: 2 / 1 / 4 / 2;
-  background-color: #8bd1c087;
+  background-color: #8bd1c040;
   height: 230px;
   width: 150px;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
 }
 
 
@@ -298,12 +297,9 @@
 
 .unliked-history-card {
   grid-area: 2 / 1 / 4 / 2;
-  background-color: #E8D3D7;
+  background-color: #e8d3d77d;
   height: 230px;
   width: 150px;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
-
-
 }
 
 .unliked-history-wine-information-title, .liked-history-wine-information-title {
@@ -325,7 +321,6 @@
   grid-area: 1 / 1 / 3 / 2;
   text-align: center;
   z-index: 100;
-
   .history-wine-img {
     width: 100%;
     object-fit: cover;
@@ -333,6 +328,7 @@
 }
 
 .history-category {
+  border-bottom: 0.1px solid black;
   h4 {
     font-size: 20px;
   }

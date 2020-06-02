@@ -30,3 +30,10 @@
 .red-wine-card, .white-wine-card, .pink-wine-card {
   display: flex;
 }
+
+.title-wine-color {
+  border-bottom: 0.1px solid $primary-color;
+  h1 {
+    font-size: 32px;
+  }
+}

@@ -11,18 +11,20 @@
 
 <div class="liked-history-cards">
     <% @liked_reviews.each do |review| %>
+    <%= link_to wine_path(review.wine) do %>
     <div class="container-card">
       <div class="liked-history-wine-image">
           <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
       </div>
-      <div class="liked-history-card">
+        <div class="liked-history-card">
         </div>
-        <div class="liked-title">
-           <div class="liked-history-wine-information-title">
-              <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
-            </div>
-          </div>
+      <div class="liked-title">
+        <div class="liked-history-wine-information-title">
+          <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
+        </div>
+        </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 
@@ -33,6 +35,7 @@
 
 <div class="unliked-history-cards">
   <% @unliked_reviews.each do |review| %>
+  <%= link_to wine_path(review.wine) do %>
     <div class="container-card">
       <div class="unliked-history-wine-image">
         <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
@@ -45,5 +48,6 @@
       </div>
       </div>
     </div>
+    <% end %>
   <% end %>
 </div>
