@@ -32,7 +32,7 @@ import { dynaFilter } from '../plugins/dynamic_filter';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  filtersModal();
+  // filtersModal();
   dynaFilter();
   // Call your functions here, e.g:
   // initSelect2();

@@ -1,6 +1,7 @@
 .set-filters{
   display: flex;
   justify-content: space-around;
+  margin: 10px 0;
   .f-set {
     background-color: $light-green;
     width: 100px;
@@ -18,3 +19,42 @@
     }
   }
 }
+
+.filter-section {
+  p {
+    font-size: 11px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+// .filter-bar {
+//   .bottles-filter {
+//     margin-bottom: 30px;
+//   }
+// }
+
+#reset-filters {
+  color: $primary-color;
+  margin-right: 8px;
+}
+
+
+.filter-action {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+// #filters {
+//   position: absolute;
+//   top: 230px;
+//   margin: 0 auto;
+//   z-index: 1000;
+//   background-color: white;
+//   width: 365px;
+//   padding: 10px 20px;
+//   left: 5px;
+//   border: 1px solid $primary-color;
+//   border-radius: 5px;
+// }
