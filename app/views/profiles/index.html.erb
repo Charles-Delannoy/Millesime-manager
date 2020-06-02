@@ -1,11 +1,9 @@
 <div class="profile-header">
   <div class="profile-picture">
     <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "card-cave-img"%>
+        <%= cl_image_tag current_user.photo.key, alt: "personnal cave", class: "profil-img"%>
       <% else %>
-        <%= link_to edit_profile_path(current_user) do %>
           <%= image_tag('profile-pic.jpg', alt: "profile picture", class: "profil-img") %>
-        <% end %>
     <% end %>
   </div>
   <div class="profile-name">
@@ -16,25 +14,21 @@
     <% end %>
   </div>
   <div class="position-edit-favicon">
-    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, "#", id:"favicon-profile-edit" %>
+    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_user_registration_path(current_user), id:"favicon-profile-edit" %>
   </div>
 </div>
 
 <div class="list-action">
   <div class="mes-caves">
-    <%= link_to "mes caves", caves_path(current_user), id:"mes-caves-profile" %>
-    <p>vous avez <%= current_user.caves.size %> caves.</p>
+    <%= link_to "Accedez à vos #{current_user.caves.size} caves.".html_safe, caves_path(current_user), id:"mes-caves-profile" %>
   </div>
-  <div class="mon-hictorique">
-    <%= link_to "Mon historique de vin", history_reviews_path(current_user), id:"vin-historique-profile" %>
-  </div>
-  <div class="mes-vins">
-    <%= link_to "Parcourir l'ensemble de vos", wines_path, id:"mes-vins-profile"  %>
+  <div class="mon-historique">
+    <%= link_to "Accedez à votre historique de vins", history_reviews_path(current_user), id:"vin-historique-profile" %>
   </div>
 </div>
 <hr>
 <div class="alcool">
-  <p>L'abus d'alcool est dangereux pour la santé. sachez consommer avec modération.</p>
+  <p>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
 </div>
 
 <div class="log-out">
