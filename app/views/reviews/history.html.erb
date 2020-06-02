@@ -1,19 +1,53 @@
-<h1>Historique des vins bus</h1>
+<div class="container-reviews">
+  <div class="history-page-title">
+    <h1> Historique des vins bus </h1>
+  </div>
+</div>
 
-<h3>Les vins à mon goût</h3>
-<ul>
-  <% @liked_reviews.each do |review| %>
-    <li>
-      <%= review.wine.name %>
-    </li>
-  <% end %>
-</ul>
 
-<h3>Les vins que je n'ai pas apprécié</h3>
-<ul>
+<div class="history-category">
+<h4>Les vins que j'apprecie</h4>
+</div>
+
+<div class="liked-history-cards">
+    <% @liked_reviews.each do |review| %>
+    <%= link_to wine_path(review.wine) do %>
+    <div class="container-card">
+      <div class="liked-history-wine-image">
+          <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
+      </div>
+        <div class="liked-history-card">
+        </div>
+      <div class="liked-title">
+        <div class="liked-history-wine-information-title">
+          <h1><%= review.wine.name %> <%= review.wine.millesime %></h1>
+        </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<div class="history-category">
+<h4>Les vins que j'apprecie moins</h4>
+</div>
+
+<div class="unliked-history-cards">
   <% @unliked_reviews.each do |review| %>
-    <li>
-      <%= review.wine.name %>
-    </li>
+  <%= link_to wine_path(review.wine) do %>
+    <div class="container-card">
+      <div class="unliked-history-wine-image">
+        <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
+      </div>
+      <div class="unliked-history-card">
+      </div>
+      <div class="unliked-title">
+      <div class="unliked-history-wine-information-title">
+      <h1><%= review.wine.name %></h1>
+      </div>
+      </div>
+    </div>
+    <% end %>
   <% end %>
-</ul>
+</div>

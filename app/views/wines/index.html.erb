@@ -1,4 +1,6 @@
-<h1>Les vins</h1>
+  <div class="wine-index-page-title">
+    <h1>Tous nos vins</h1>
+  </div>
 
 <%= form_tag wines_path, class: "search-bar", method: :get do %>
   <%= text_field_tag :query,
@@ -35,19 +37,45 @@
         <h3> <strong>Appelation:</strong> <%= wine.appelation.name %> </h3>
       </div>
 
+      <!--Apogée percentage calcul-->
       <% now_diff = Time.now.year - wine.apogee_start %>
       <% apogee_duration = wine.apogee_end - wine.apogee_start + 1 %>
       <% percentage = (now_diff < 0) ? 0 : ((now_diff+1).to_f/apogee_duration)*100 %>
+      <!--Before apogée percentage calcul-->
+      <% now_diff_before = Time.now.year - wine.millesime %>
+      <% before_duration = wine.apogee_start - wine.millesime %>
+      <% percentage_before = (now_diff_before == 0) ? 0 : ((now_diff_before).to_f/before_duration)*100 %>
+      <% percentage_before = 100 if Time.now.year > wine.apogee_start %>
+      <!--Before apogée percentage calcul-->
+      <% now_diff_after = Time.now.year - wine.apogee_end %>
+      <% percentage_after = Time.now.year <= wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
+      <% percentage_after = 100 if wine.apogee_end < Time.now.year %>
+
 
       <div class="wine-apogee">
-      <h3><%= wine.apogee_start %></h3>
-      <div class="progress">
-        <div class="progress-bar" style="width:<%= percentage.to_i %>%;">
-          <% if wine.apogee_end < Time.now.year %> <p class='a-depassee'>Apogée dépassée</p> <% end %>
-        </div>
+        <div class="global-progress">
+          <div class="progress before-a">
+            <div class="progress-bar bar-before-a" style="width:<%= percentage_before.to_i %>%;">
+            </div>
+          </div>
+          <div class="progress during-a">
+            <div class="progress-bar bar-during-a" style="width:<%= percentage.to_i %>%;">
+            </div>
+          </div>
+          <div class="progress after-a">
+            <div class="progress-bar bar-after-a" style="width:<%= percentage_after.to_i %>%;">
+            </div>
+          </div>
       </div>
-      <h3><%= wine.apogee_end %></h3>
+      <div class="apogee-years">
+        <h3><%= wine.apogee_start %></h3>
+        <h3 class="apogee-flag">Apogée</h3>
+        <h3><%= wine.apogee_end %></h3>
+      </div>
     </div>
+
+
+
     </div>
     <div class="add-bottle-in">
       <% if @cave.present? %>
