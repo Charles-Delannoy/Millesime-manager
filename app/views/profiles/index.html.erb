@@ -8,13 +8,13 @@
   </div>
   <div class="profile-name">
     <% if current_user.first_name.present? %>
-      <%= current_user.first_name %>
+      <p>Bienvenue <%= current_user.first_name %></p>
     <% else %>
-      <p><%= current_user.email %></p>
+      <p>Bienvenue <%= current_user.email %></p>
     <% end %>
-  </div>
-  <div class="position-edit-favicon">
-    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_user_registration_path(current_user), id:"favicon-profile-edit" %>
+    <div class="position-edit-favicon">
+      <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_user_registration_path(current_user), id:"favicon-profile-edit" %>
+    </div>
   </div>
 </div>
 
