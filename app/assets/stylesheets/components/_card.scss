@@ -123,6 +123,15 @@
     font-size: 16px;
     color: $secondary-color;
     opacity: 0.8;
+    &:hover{
+      text-decoration:none;
+      color: $green-contrasting;
+      opacity: 1;
+    }
+    &:focus {
+      color: $green-contrasting;
+      opacity: 1;
+    }
   }
   .card-cave-index-empy {
     position: absolute;
