@@ -17,5 +17,4 @@ class WinesController < ApplicationController
     @pairings = Pairing.where(wine: @wine)
     authorize @wine
   end
-
 end
