@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-.review-page-title {
+.review-page-title, .history-page-title  {
   height: 40px;
   background-color: $light-gray;
   margin-bottom: 10px;
@@ -28,3 +28,5 @@
     padding-bottom: 10px;
   }
 }
+
+

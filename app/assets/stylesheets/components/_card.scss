@@ -262,3 +262,79 @@
 
 // END REVIEWS INDEX
 
+// HISTORY CARD
+
+.liked-history-card {
+  grid-area: 2 / 1 / 4 / 2;
+  background-color: #8bd1c087;
+  height: 230px;
+  width: 150px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+}
+
+
+.liked-history-cards, .unliked-history-cards {
+  display: flex;
+  overflow-x: scroll;
+  width: 100vw;
+}
+
+.liked-history-cards {
+ margin-bottom: 8px;
+}
+
+.container-card {
+  width: 150px;
+  display: grid;
+  grid-template-rows: 40px 150px 75px;
+  grid-template-areas: "empty"
+                       "card-image"
+                       "card-text";
+  margin-left: 10px;
+  margin-bottom: 10px;
+  flex: 0 0 auto;
+}
+
+
+.unliked-history-card {
+  grid-area: 2 / 1 / 4 / 2;
+  background-color: #E8D3D7;
+  height: 230px;
+  width: 150px;
+  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+
+
+}
+
+.unliked-history-wine-information-title, .liked-history-wine-information-title {
+  h1 {
+    font-size: 14px;
+    text-align: center;
+    margin: 0px 5px 0px 13px;
+  }
+}
+
+.unliked-title, .liked-title {
+  width: 100%;
+  justify-content: center;
+  grid-area: card-text;
+  align-self: center;
+}
+
+.liked-history-wine-image, .unliked-history-wine-image {
+  grid-area: 1 / 1 / 3 / 2;
+  text-align: center;
+  z-index: 100;
+
+  .history-wine-img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.history-category {
+  h4 {
+    font-size: 20px;
+  }
+}
+
