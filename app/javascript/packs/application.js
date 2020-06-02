@@ -27,11 +27,13 @@ require("channels")
 // External imports
 import "bootstrap";
 import { filtersModal } from '../plugins/modal_form';
+import { dynaFilter } from '../plugins/dynamic_filter';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   filtersModal();
+  dynaFilter();
   // Call your functions here, e.g:
   // initSelect2();
 });
