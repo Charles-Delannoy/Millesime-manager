@@ -5,6 +5,17 @@
 <div id='filters' class='d-none'>
   <%= render "cave_filter", cave: @cave %>
 </div>
+<div class="set-filters">
+  <% if @options[:pairings] %>
+  <div class="f-set"><p>Charcuterie</p></div>
+  <% end %>
+  <% if @options[:pairings] %>
+  <div class="f-set"><p>Bordeaux</p></div>
+  <% end %>
+  <% if @options[:pairings] %>
+  <div class="f-set"><p>1ere Ctes B</p></div>
+  <% end %>
+</div>
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
