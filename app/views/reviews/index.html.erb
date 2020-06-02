@@ -5,7 +5,14 @@
   </div>
 </div>
 
+<% if @reviews.empty?  %>
+  <div class="empty-review">
+    <div class="empty-review-content">
+      <p>Vous n'avez aucune évaluation en attente</p>
+    </div>
+  </div>
 
+<% else %>
 <div class="review-cards">
  <% @reviews.each do |review| %>
   <div class="review-card">
@@ -35,11 +42,9 @@
       </div>
     </div>
   <% end %>
+  <% end %>
 
-  <div class="create-history-link">
-    <%= link_to "Historique des vins bus", history_reviews_path, class: "add-wine-to-my-cave-btn" %>
-  </div>
-</div>
+
 
 
 

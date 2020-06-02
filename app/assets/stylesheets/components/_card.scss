@@ -209,11 +209,7 @@
 
 // CARD - PENDING REVIEWS
 
-.create-history-link {
-  text-align: center;
-  position: fixed;
-  bottom: 80px;
-}
+
 
 .review-card {
   display: flex;
@@ -222,6 +218,7 @@
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   position: relative;
   margin-top: 35px;
+  margin-bottom: 35px;
   i {
     color: $primary-color;
     font-size: 30px;
