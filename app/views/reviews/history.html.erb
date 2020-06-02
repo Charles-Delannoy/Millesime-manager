@@ -5,8 +5,9 @@
 </div>
 
 
-
-<h3>Les vins à mon goût</h3>
+<div class="history-category">
+<h4>Les vins que j'apprecie</h4>
+</div>
 
 <div class="liked-history-cards">
     <% @liked_reviews.each do |review| %>
@@ -26,8 +27,10 @@
   </div>
 
 
+<div class="history-category">
+<h4>Les vins que j'apprecie moins</h4>
+</div>
 
-<h3>Les vins - </h3>
 <div class="unliked-history-cards">
   <% @unliked_reviews.each do |review| %>
     <div class="container-card">
