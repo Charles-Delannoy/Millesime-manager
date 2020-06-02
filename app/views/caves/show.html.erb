@@ -7,13 +7,13 @@
 </div>
 <div class="set-filters">
   <% if @options[:pairings] %>
-  <div class="f-set"><p>Charcuterie</p></div>
+  <div class="f-set"><p><%= Meal.find(params[:meal]).name %></p></div>
   <% end %>
-  <% if @options[:pairings] %>
-  <div class="f-set"><p>Bordeaux</p></div>
+  <% if @options[:appelations] %>
+  <div class="f-set"><p><%= Region.find(params[:region]).name.first(14) %></p></div>
   <% end %>
-  <% if @options[:pairings] %>
-  <div class="f-set"><p>1ere Ctes B</p></div>
+  <% if @options[:appelation_id] && @options[:appelations] != ""%>
+  <div class="f-set"><%= Appelation.find(params[:appelation]).name.first(14) %></div>
   <% end %>
 </div>
 
