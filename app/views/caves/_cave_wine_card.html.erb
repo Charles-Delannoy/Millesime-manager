@@ -6,7 +6,7 @@
       </div>
       <div class="cave-show-wine-information">
         <div class="cave-show-wine-title">
-          <h1><strong><%= bottle.wine.name %></strong></h1>
+          <h1><strong><%= bottle.wine.name.first(40) %></strong></h1>
         </div>
         <div class="cave-show-wine-description">
           <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
