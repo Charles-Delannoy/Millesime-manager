@@ -24,9 +24,9 @@
     <% if current_user.caves.empty? %>
       <%= link_to "Créez votre cave", new_cave_path(current_user), id:"mes-caves-profile", class:"card-link-profile" %>
     <% elsif current_user.caves.size == 1 %>
-        <%= link_to "Accedez à votre cave.".html_safe, caves_path(current_user), class:"card-link-profile" %>
+        <%= link_to "Accédez à votre cave".html_safe, caves_path(current_user), class:"card-link-profile" %>
     <% else %>
-      <%= link_to "Accedez à vos #{current_user.caves.size} caves.".html_safe, caves_path(current_user), class:"card-link-profile" %>
+      <%= link_to "Accédez à vos #{current_user.caves.size} caves".html_safe, caves_path(current_user), class:"card-link-profile" %>
     <% end %>
   </div>
   <div class="card-profil-content">
