@@ -11,7 +11,7 @@
 
 <div class="liked-history-cards">
     <% @liked_reviews.each do |review| %>
-    <%= link_to wine_path(review.wine) do %>
+    <%= link_to wine_path(review.wine), class: "hoverlink" do %>
     <div class="container-card">
       <div class="liked-history-wine-image">
           <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
@@ -35,7 +35,7 @@
 
 <div class="unliked-history-cards">
   <% @unliked_reviews.each do |review| %>
-  <%= link_to wine_path(review.wine) do %>
+  <%= link_to wine_path(review.wine), class: "hoverlink" do %>
     <div class="container-card">
       <div class="unliked-history-wine-image">
         <%= cl_image_tag review.wine.photo.key, class: "history-wine-img" %>
