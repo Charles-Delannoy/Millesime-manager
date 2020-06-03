@@ -1,9 +1,10 @@
 .profile-header {
+  position: relative;
   display: flex;
   align-items: center;
   background-color: $light-gray;
   border-radius: 4px;
-  margin: 30px auto;
+  margin: 20px auto;
   .profil-img {
     margin: 10px 8px;
     height: 130px;
@@ -14,19 +15,23 @@
   }
   .profile-name{
     margin: 20px 0;
+    padding: 0 25px;
     font-size: 14px;
     font-weight: bold;
     opacity: 0.8;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    text-align: center;
+    // align-items: center;
     p{
-    padding: 8px 10px;
+    padding: 8px 0;
     margin: 0 auto;
    }
   }
   .position-edit-favicon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     height: 30px;
     width: 30px;
     border-radius: 50px;
@@ -46,7 +51,7 @@
 }
 
 .list-profil {
-  margin: 80px auto;
+  margin: 50px auto;
   .card-link-profile {
     height: 50px;
     display: flex;
@@ -70,8 +75,8 @@
 
 #alcool {
   display: flex;
-  padding: 30px;
-  height: 100px;
+  padding: 10px;
+  height: 70px;
   width: 100%;
   background-color: $secondary-color;
   opacity: 0.8;

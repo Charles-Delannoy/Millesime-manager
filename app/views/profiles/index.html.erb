@@ -7,10 +7,11 @@
     <% end %>
   </div>
   <div class="profile-name">
+    <p>Bienvenue</p>
     <% if current_user.first_name.present? %>
-      <p>Bienvenue <%= current_user.first_name %></p>
+      <p><%= current_user.first_name %></p>
     <% else %>
-      <p>Bienvenue <%= current_user.email %></p>
+      <p><%= current_user.email %></p>
     <% end %>
     <div class="position-edit-favicon">
       <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_user_registration_path(current_user), id:"favicon-profile-edit" %>
