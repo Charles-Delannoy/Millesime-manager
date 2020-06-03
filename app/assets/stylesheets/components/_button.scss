@@ -122,6 +122,7 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   background-color: white;
+  margin: 0 0 0 90px;
   &:hover {
     opacity: 1;
     color: $primary-color;
@@ -152,6 +153,54 @@
   &:focus {
     opacity: 0.7;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
+  }
+}
+
+.back-to-my-bottle-btn {
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: white;
+  margin: 0 0 0 70px;
+  &:hover {
+    opacity: 1;
+    color: $primary-color;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+  &:focus {
+    opacity: 1;
+    color: $primary-color;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+}
+
+.save-bottle-btn {
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: white;
+  margin: 0 0 0 94px;
+  &:hover {
+    opacity: 1;
+    color: $primary-color;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+  &:focus {
+    opacity: 1;
+    color: $primary-color;
+    text-decoration: none;
+    border-radius: 50px;
   }
 }
 
