@@ -115,7 +115,7 @@
 
 // CAVE SHOW END
 
-// Card - Cave Index
+// CARD - CAVE INDEX
 
 .card-position-relative-edit-favicon{
   position: relative;
@@ -126,7 +126,7 @@
   }
   #cave-favicon {
     font-size: 16px;
-    color: $secondary-color;
+    color: white;
     opacity: 0.8;
     &:hover{
       text-decoration:none;
@@ -140,15 +140,15 @@
   }
   .card-cave-index-empy {
     position: absolute;
-    top: 100px;
-    right: 32px;
-    font-size: 12px;
+    bottom: 3px;
+    right: 15px;
   }
 }
 
 .cave-card {
   height: 200px;
-  background-color: $light-gray;
+  background-size: cover;
+  background-position: center;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
@@ -172,14 +172,7 @@
   }
 }
 
-.card-cave-img {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-}
-
 .cave-card-info {
-  height: 230px;
   width: 100%;
 }
 
@@ -187,53 +180,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 16px;
   h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 16px;
-    padding-top: 10px;
-    color: black;
+    font-size: 20px;
+    color: white;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, .8);
   }
 }
 
 .cave-card-element {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 16px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
   p {
   font-size: 16px;
   }
 }
 
-.cave-bottle-count{
-  position: relative;
-}
-
-.bottle-count {
-  height: 46px;
-  width: 28px;
+.red-bottle-count {
+  margin-right: 5px;
+  height: 35px;
+  width: 35px;
+  background-color: $red-wine;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 64px;
-  left: 11px;
   p {
     margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
-.cave-card-little-bottle {
-  height: 130px;
-  margin: 0 10px;
-  object-fit: cover;
+.pink-bottle-count {
+  margin-right: 5px;
+  height: 35px;
+  width: 35px;
+  background-color: $pink-wine;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0 auto;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
 }
 
+.white-bottle-count {
+  margin-right: 5px;
+  height: 35px;
+  width: 35px;
+  background-color: $white-wine;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+// CARD - CAVE INDEX END
 // CARD - PENDING REVIEWS
-
-
 
 .review-card {
   display: flex;
