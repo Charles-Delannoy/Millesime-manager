@@ -15,7 +15,6 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
     @assemblages = Assemblage.where(wine: @wine)
     @pairings = Pairing.where(wine: @wine)
-    raise
     authorize @wine
   end
 end
