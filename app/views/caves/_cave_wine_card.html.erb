@@ -23,8 +23,8 @@
 
          <!--Apogée percentage calcul-->
       <% now_diff = Time.now.year - bottle.wine.apogee_start %>
-      <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start + 1 %>
-      <% percentage = (now_diff < 0) ? 0 : ((now_diff+1).to_f/apogee_duration)*100 %>
+      <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start %>
+      <% percentage = (now_diff < 0) ? 0 : ((now_diff).to_f/apogee_duration)*100 %>
       <!--Before apogée percentage calcul-->
       <% now_diff_before = Time.now.year - bottle.wine.millesime %>
       <% before_duration = bottle.wine.apogee_start - bottle.wine.millesime %>
