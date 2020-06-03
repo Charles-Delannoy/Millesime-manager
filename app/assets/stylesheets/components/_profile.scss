@@ -14,15 +14,16 @@
     object-fit: cover;
   }
   .profile-name{
+    padding: 0px 5px;
+    max-width: 200px;
     margin: 20px 0;
-    padding: 0 25px;
     font-size: 14px;
     font-weight: bold;
     opacity: 0.8;
     font-family: 'Montserrat', sans-serif;
     display: block;
     text-align: center;
-    // align-items: center;
+    overflow-wrap: break-word;
     p{
     padding: 8px 0;
     margin: 0 auto;
