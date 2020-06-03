@@ -268,6 +268,10 @@
   width: 150px;
 }
 
+.hoverlink {
+   text-decoration: none!important;
+    color: black;
+}
 
 .liked-history-cards, .unliked-history-cards {
   display: flex;
@@ -291,7 +295,6 @@
   flex: 0 0 auto;
 }
 
-
 .unliked-history-card {
   grid-area: 2 / 1 / 4 / 2;
   background-color: #e8d3d77d;
@@ -304,6 +307,8 @@
     font-size: 14px;
     text-align: center;
     margin: 0px 5px 0px 13px;
+    color: black;
+
   }
 }
 
@@ -331,3 +336,4 @@
   }
 }
 
+// END HISTORY CARD
