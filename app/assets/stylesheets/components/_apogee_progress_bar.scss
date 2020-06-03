@@ -1,3 +1,18 @@
+.apogee-position {
+  background-color: black;
+  height: 20px;
+  width: 2px;
+  position: absolute;
+  top: -1px;
+  // left: 0;
+}
+
+.triangle {
+  position: absolute;
+  top: -18px;
+  font-size: 17px;
+}
+
 .wine-apogee {
   display: flex;
   flex-direction: column;
@@ -58,22 +73,23 @@
 .global-progress {
   display: flex;
   border: 1px solid #bda6ac;
-  border-radius: 10px;
+  // border-radius: 10px;
   width: 99%;
 }
 
 .before-a {
-  border-radius: 10px 0 0 10px;
-  border-right: 1px solid gray;
+  // border-radius: 10px 0 0 10px;
+  // border-right: 1px solid gray;
   width: 20%;
 }
 
 .after-a {
   border-radius: 0 10px 10px 0;
-  border-left: 1px solid gray;
+  // border-left: 1px solid gray;
   width: 20%;
 }
 
 .during-a {
   width: 60%;
+  background-color: $secondary-color
 }
