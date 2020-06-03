@@ -41,56 +41,56 @@
     </div>
   <% end %>
 </div>
-  <div class="wine-section-color-red">
-    <div class="title-wine-color">
-      <h1>Mes vins rouges</h1>
-    </div>
-    <% if @redbottles.empty? %>
-      <p class="no-results">Aucune bouteille de rouge ne correspond à votre recherche !</p>
-    <% else %>
-      <div class="wine-ribbon">
-        <% @redbottles.each do |redbottle| %>
-          <div class="red-wine-card">
-            <%= render "cave_wine_card", bottle: redbottle %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 
-  <div class="wine-section-color-white">
-    <div class="title-wine-color">
-      <h1>Mes vins blancs</h1>
-    </div>
-    <% if @whitebottles.empty? %>
-      <p class="no-results">Aucune bouteille de blanc ne correspond à votre recherche !</p>
-    <% else %>
-      <div class="wine-ribbon">
-        <% @whitebottles.each do |whitebottle| %>
-          <div class="white-wine-card">
-            <%= render "cave_wine_card", bottle: whitebottle %>
-          </div>
-        <% end %>
+  <% unless @redbottles.sum(:quantity) == 0 || @redbottles.empty? %>
+    <div class="wine-section-color-red">
+      <div class="title-wine-color">
+        <h1>Mes vins rouges</h1>
       </div>
-    <% end %>
-  </div>
+        <div class="wine-ribbon">
+          <% @redbottles.each do |redbottle| %>
+            <div class="red-wine-card">
+              <%= render "cave_wine_card", bottle: redbottle %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
 
-  <div class="wine-section-color-pink">
-    <div class="title-wine-color">
-      <h1>Mes vins rosés</h1>
-    </div>
-    <% if @pinkbottles.empty? %>
-      <p class="no-results">Aucune bouteille de rosé ne correspond à votre recherche !</p>
-    <% else %>
-      <div class="wine-ribbon">
-        <% @pinkbottles.each do |pinkbottle| %>
-          <div class="pink-wine-card">
-            <%= render "cave_wine_card", bottle: pinkbottle %>
-          </div>
-        <% end %>
+  <% unless @whitebottles.sum(:quantity) == 0 || @whitebottles.empty? %>
+    <div class="wine-section-color-white">
+      <div class="title-wine-color">
+        <h1>Mes vins blancs</h1>
       </div>
-    <% end %>
-  </div>
+        <div class="wine-ribbon">
+          <% @whitebottles.each do |whitebottle| %>
+            <div class="white-wine-card">
+              <%= render "cave_wine_card", bottle: whitebottle %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+
+  <% unless @pinkbottles.sum(:quantity) == 0 || @pinkbottles.empty? %>
+    <div class="wine-section-color-pink">
+      <div class="title-wine-color">
+        <h1>Mes vins rosés</h1>
+      </div>
+        <div class="wine-ribbon">
+          <% @pinkbottles.each do |pinkbottle| %>
+            <div class="pink-wine-card">
+              <%= render "cave_wine_card", bottle: pinkbottle %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+
+  <% if @pinkbottles.empty? && @whitebottles.empty? && @redbottles.empty? %>
+    <p class="no-results">Aucune bouteille ne correspond à votre recherche !</p>
+  <% end %>
+
 <% end %>
 
 
