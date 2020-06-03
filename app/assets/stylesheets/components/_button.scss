@@ -218,3 +218,19 @@
   border: none;
   background-color: #eee9e9;
 }
+
+// CAVE INDEX BTN
+
+
+.add-bottle-cave {
+  color: white;
+  font-size: 30px;
+  &:hover{
+      text-decoration:none;
+      color: $green-contrasting;
+    }
+    &:focus {
+      color: $green-contrasting;
+    }
+}
+
