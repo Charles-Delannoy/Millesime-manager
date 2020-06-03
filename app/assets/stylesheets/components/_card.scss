@@ -135,9 +135,8 @@
   }
   .card-cave-index-empy {
     position: absolute;
-    bottom: 5px;
+    bottom: 3px;
     right: 15px;
-    // font-size: 12px;
   }
 }
 
@@ -145,7 +144,6 @@
   height: 200px;
   background-size: cover;
   background-position: center;
-  // background-color: $light-gray;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
@@ -170,7 +168,6 @@
 }
 
 .cave-card-info {
-  // height: 230px;
   width: 100%;
 }
 
@@ -182,27 +179,24 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 20px;
-    padding-top: 20px;
     color: white;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, .8);
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, .8);
   }
 }
 
 .cave-card-element {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 16px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
   p {
   font-size: 16px;
   }
 }
 
-// .cave-bottle-count{
-//   position: relative;
-// }
-
 .red-bottle-count {
+  margin-right: 10px;
   height: 35px;
   width: 35px;
   background-color: $red-wine;
@@ -210,9 +204,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   p {
     margin: 0 auto;
     color: white;
@@ -222,6 +213,7 @@
 }
 
 .pink-bottle-count {
+  margin-right: 10px;
   height: 35px;
   width: 35px;
   background-color: $pink-wine;
@@ -229,9 +221,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 50px;
   p {
     margin: 0 auto;
     color: white;
@@ -241,6 +230,7 @@
 }
 
 .white-bottle-count {
+  margin-right: 10px;
   height: 35px;
   width: 35px;
   background-color: $white-wine;
@@ -248,9 +238,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 90px;
   p {
     margin: 0 auto;
     color: white;
@@ -259,15 +246,8 @@
   }
 }
 
-// .cave-card-little-bottle {
-//   height: 130px;
-//   margin: 0 10px;
-//   object-fit: cover;
-// }
-
+// CARD - CAVE INDEX END
 // CARD - PENDING REVIEWS
-
-
 
 .review-card {
   display: flex;

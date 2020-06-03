@@ -26,40 +26,31 @@
         <div class="cave-card-element">
 
           <% red_count = cave.bottles.joins(:wine).where(wines: {color: 'Rouge'}).sum(:quantity) %>
+            <!-- <div class="cave-bottle-count"> -->
           <% if red_count > 0 %>
-            <div class="cave-bottle-count">
-              <!-- <div class="red-bottles">
-                <%#= image_tag('red-bottle.png', alt: "red wine bottle", class:"cave-card-little-bottle") %>
-              </div> -->
               <div class="red-bottle-count">
                 <p><%= red_count %></p>
               </div>
-            </div>
           <% end %>
+            <!-- </div> -->
 
           <% pink_count = cave.bottles.joins(:wine).where(wines: {color: 'Rosé'}).sum(:quantity) %>
+            <!-- <div class="cave-bottle-count"> -->
           <% if pink_count > 0 %>
-            <div class="cave-bottle-count">
-              <!-- <div class="rose-bottles-count">
-                <%#= image_tag('rose-bottle.png', alt: "rose wine bottle", class:"cave-card-little-bottle") %>
-              </div> -->
               <div class="pink-bottle-count">
                 <p><%= pink_count %></p>
               </div>
-            </div>
           <% end %>
+            <!-- </div> -->
 
           <% white_count = cave.bottles.joins(:wine).where(wines: {color: 'Blanc'}).sum(:quantity) %>
+            <!-- <div class="cave-bottle-count"> -->
           <% if white_count > 0  %>
-            <div class="cave-bottle-count">
-              <!-- <div class="white-bottles-count">
-                <%#= image_tag('white-bottle.png', alt: "white wine bottle", class:"cave-card-little-bottle") %>
-              </div> -->
               <div class="white-bottle-count">
                 <p><%= white_count %></p>
               </div>
-            </div>
           <% end %>
+            <!-- </div> -->
         </div>
       </div>
     </div>
