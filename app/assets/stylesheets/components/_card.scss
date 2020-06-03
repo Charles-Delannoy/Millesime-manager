@@ -205,9 +205,17 @@
 }
 
 .bottle-count {
+  height: 46px;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 75px;
-  left: 19px;
+  top: 64px;
+  left: 11px;
+  p {
+    margin: 0 auto;
+  }
 }
 
 .cave-card-little-bottle {
