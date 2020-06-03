@@ -1,3 +1,6 @@
+<div class="cave-bottle-page-title">
+   <h1>Sortir des bouteilles de ma cave</h1>
+</div>
 <%= simple_form_for @bottle do |f| %>
 <%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..f.object.quantity), selected: 1 %>
 <%= f.submit "Sortir de ma cave", class: "take-bottle-out-btn"%>

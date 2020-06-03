@@ -2,9 +2,9 @@
 
 .wine-index-card {
   display: flex;
-  background-color: $light-gray;
+  background-color: white;
   height: 193px;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 20px -11px rgba(0, 0, 0, 0.75);
   margin: 50px auto;
   padding-right: 10px;
   padding-left: 100px;
@@ -61,13 +61,14 @@
 .cave-show-wine-card {
   display: flex;
   background-color: $light-gray;
-  height: 193px;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  height: 200px;
+  box-shadow: 0px 10px 20px -11px rgba(0, 0, 0, 0.75);
   margin: 50px auto;
-  margin-right: 30px;
+  margin-right: 12px;
   padding-right: 10px;
   padding-left: 100px;
   position: relative;
+  width: 315px;
   .cave-show-wine-img {
     width: 170px;
     position: absolute;
@@ -90,11 +91,15 @@
   display: flex;
   justify-content: space-between;
   width: 65vw;
-  padding-right: 35px;
+  padding-right: 60px;
   h1 {
     color: $black;
-    font-size: 16px;
+    font-size: 15px;
   }
+}
+
+.cave-show-wine-information {
+  width: 170px;
 }
 
 .cave-show-wine-description {
