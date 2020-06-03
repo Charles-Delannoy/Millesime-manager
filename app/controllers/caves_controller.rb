@@ -20,9 +20,9 @@ class CavesController < ApplicationController
     @options[:appelations] = {region_id: params[:region]} if params[:region].present?
     @options[:appelation_id] = params[:appelation] if params[:appelation].present?
     if @options.any?
-      @redbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rouge'))
-      @whitebottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Blanc'))
-      @pinkbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rosé'))
+      @redbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rouge')).where('wines.apogee_start <= :date AND wines.apogee_end >= :date', date: Time.now.year)
+      @whitebottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Blanc')).where('wines.apogee_start <= :date AND wines.apogee_end >= :date', date: Time.now.year)
+      @pinkbottles = @cave.bottles.includes(wine: [:pairings, :appelation]).where(wines: @options.merge(color: 'Rosé')).where('wines.apogee_start <= :date AND wines.apogee_end >= :date', date: Time.now.year)
     else
       @redbottles = @cave.bottles.includes(:wine).where(wines: {color: 'Rouge'})
       @whitebottles = @cave.bottles.includes(:wine).where(wines: {color: 'Blanc'})
