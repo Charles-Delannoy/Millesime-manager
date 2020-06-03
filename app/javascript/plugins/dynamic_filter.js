@@ -1,7 +1,6 @@
 const dynaFilter = () => {
   const region = document.getElementById('region-filter');
   if (region) {
-    const firstRegionValue = Number.parseInt(region.value, 10);
     const myAppelations = document.getElementById('region-value');
     const appelations = JSON.parse(myAppelations.dataset.appelations);
     const appelationSelect = document.getElementById('appelation-filter');
@@ -14,6 +13,7 @@ const dynaFilter = () => {
 
 const setAppelations = (appelations, appelationSelect, region) => {
   const regionValue = Number.parseInt(region.value, 10);
+  if (!isNaN(regionValue)) {
   const filteredApp = appelations.filter(appelation => {
     return appelation.region_id == regionValue;
   });
@@ -21,6 +21,7 @@ const setAppelations = (appelations, appelationSelect, region) => {
   <option value="">Selectionner une appelation</option>\n
   ${buildOptions(filteredApp)};
   `
+  }
 }
 
 const buildOptions = (data) => {
