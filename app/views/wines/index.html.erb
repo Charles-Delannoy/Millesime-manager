@@ -51,7 +51,7 @@
       <% percentage_after = Time.now.year <= wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
       <% percentage_after = 100 if wine.apogee_end < Time.now.year %>
 
-      <% cursor_pos = 50*(percentage_before/100) + 147*(percentage/100) + 48*(percentage_after/100)%>
+      <% cursor_pos = 40*(percentage_before/100) + 117*(percentage/100) + 40*(percentage_after/100)%>
 
       <div class="wine-apogee">
         <div class="global-progress">
