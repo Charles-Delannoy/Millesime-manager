@@ -1,5 +1,5 @@
 <%= simple_form_for [wine, bottle] do |f| %>
   <%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..120), selected: 1 %>
-  <%= f.association :cave, collection: current_user.caves %>
+  <%= f.association :cave, collection: current_user.caves, include_blank: false %>
   <%= f.submit "Ajouter à ma cave", class:'add-bottle-btn'%>
 <% end %>
