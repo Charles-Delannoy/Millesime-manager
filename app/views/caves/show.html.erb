@@ -45,7 +45,13 @@
   <% unless @redbottles.sum(:quantity) == 0 || @redbottles.empty? %>
     <div class="wine-section-color-red">
       <div class="title-wine-color">
-        <h1>Mes vins rouges</h1>
+        <% red_count = @cave.bottles.joins(:wine).where(wines: {color: 'Rouge'}).sum(:quantity) %>
+          <div class="red-bottle-count-cave-show">
+            <p><%= red_count %><p>
+          </div>
+          <div class="bottle-count-title-cave-show">
+            bouteilles de vin rouge
+          </div>
       </div>
         <div class="wine-ribbon">
           <% @redbottles.each do |redbottle| %>
@@ -60,8 +66,14 @@
   <% unless @whitebottles.sum(:quantity) == 0 || @whitebottles.empty? %>
     <div class="wine-section-color-white">
       <div class="title-wine-color">
-        <h1>Mes vins blancs</h1>
-      </div>
+        <% white_count = @cave.bottles.joins(:wine).where(wines: {color: 'Blanc'}).sum(:quantity) %>
+          <div class="white-bottle-count-cave-show">
+          <p><%= white_count %></p>
+          </div>
+          <div class="bottle-count-title-cave-show">
+            bouteilles de vin blanc
+          </div>
+        </div>
         <div class="wine-ribbon">
           <% @whitebottles.each do |whitebottle| %>
             <div class="white-wine-card">
@@ -75,7 +87,13 @@
   <% unless @pinkbottles.sum(:quantity) == 0 || @pinkbottles.empty? %>
     <div class="wine-section-color-pink">
       <div class="title-wine-color">
-        <h1>Mes vins rosés</h1>
+         <% pink_count = @cave.bottles.joins(:wine).where(wines: {color: 'Rosé'}).sum(:quantity) %>
+          <div class="pink-bottle-count-cave-show">
+            <p><%= pink_count %></p>
+          </div>
+          <div class="bottle-count-title-cave-show">
+            bouteilles de vin rosé
+          </div>
       </div>
         <div class="wine-ribbon">
           <% @pinkbottles.each do |pinkbottle| %>
