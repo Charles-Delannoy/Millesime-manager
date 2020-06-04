@@ -8,7 +8,7 @@
 </div>
 
   <div class="container-scroll">
-    <div class="review-cards">
+    <div class="review-cards <%= "add-margin" if @reviews.count == 1 %>">
       <% @reviews.each do |review| %>
         <div class="review-card">
           <div class="review-wine-image">
