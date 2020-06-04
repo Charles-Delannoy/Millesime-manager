@@ -253,51 +253,73 @@
 
 // CARD - CAVE INDEX END
 // CARD - PENDING REVIEWS
-
-.review-card {
+.review-cards {
   display: flex;
-  background-color: $light-gray;
-  height: 120px;
+  // overflow-x: scroll;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.container-scroll {
+  overflow-x: scroll;
+}
+.review-card {
+  background-color: white;
+  // height: 200px;
+  width: 180px;
   box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
   position: relative;
-  margin-top: 35px;
-  margin-bottom: 35px;
+  margin-top: 25px;
+  margin-right: 25px;
   i {
     color: $primary-color;
-    font-size: 30px;
+    background-color: white;
+    font-size: 28px;
   }
   i.liked {
     color: $green-contrasting;
+    background-color: white;
+
   }
   .review-wine-index-img {
-    width: 80px;
-    height: 140px;
+    width: 100px;
+    height: 160px;
     object-fit: cover;
     position: absolute;
-    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    top: -25%;
+
   }
+}
+
+.review-wine-image {
+  text-align: center;
+ //
 }
 
 .review-wine-information-card {
-  margin-left: 80px;
+  margin-top: 120px;
   width: 100%;
-  display: flex;
+  // display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
+  position: bottom;
+  }
 
 .review-wine-information-title {
   h1 {
-    font-size: 18px;
+    font-size: 12px;
     text-align: center;
     padding-right: 5px;
-
   }
 }
 
 .review-wine-information-like {
   display: flex;
   justify-content: space-around;
+  background-color: white;
+
 }
 
 // END REVIEWS INDEX
