@@ -1,13 +1,13 @@
 .cave-page-title, .history-page-title, .wine-index-page-title, .form-page-title, .cave-bottle-page-title, .new-cave-page-title {
   height: 40px;
-  background-color: $light-gray;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: left;
   h1 {
     font-size: 20px;
     color: black;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-weight: bold;
   }
 }
 

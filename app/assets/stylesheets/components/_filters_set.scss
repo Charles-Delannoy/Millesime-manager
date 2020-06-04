@@ -3,7 +3,7 @@
   justify-content: space-around;
   margin: 10px 0;
   .f-set {
-    background-color: $light-green;
+    background-color: #ababab;
     width: 100px;
     height: 20px;
     text-align: center;
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    color: $green-contrasting;
+    color: #3e3e3e;
     p {
       margin: 0;
     }
@@ -28,15 +28,9 @@
   }
 }
 
-// .filter-bar {
-//   .bottles-filter {
-//     margin-bottom: 30px;
-//   }
-// }
-
 #reset-filters {
-  color: $primary-color;
-  margin-right: 8px;
+  color: black;
+  margin-right: 16px;
 }
 
 
@@ -47,15 +41,3 @@
   margin: 20px 0;
 }
 
-// #filters {
-//   position: absolute;
-//   top: 230px;
-//   margin: 0 auto;
-//   z-index: 1000;
-//   background-color: white;
-//   width: 365px;
-//   padding: 10px 20px;
-//   left: 5px;
-//   border: 1px solid $primary-color;
-//   border-radius: 5px;
-// }

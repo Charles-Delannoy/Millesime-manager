@@ -1,7 +1,9 @@
 <div class="cave-page-title">
   <h1 id="cave-name"><%= @cave.name %></h1>
 </div>
-
+<div class="add-bottle-div">
+  <%= link_to '<i class="fas fa-plus"></i>'.html_safe, cave_wines_path(@cave), class:"add-bottle-to-cave" %>
+</div>
 
 <% bottle_count = @cave.bottles.sum(:quantity) %>
 
@@ -15,8 +17,8 @@
 
 <% else %>
   <div class="add-wine-from-cave-show">
-    <%= link_to "Ajouter des bouteilles", cave_wines_path(@cave), class:"add-bottle" %>
-    <%= link_to "Afficher/cacher les filtres", '#', id:"filter-button", class:"add-bottle", data: {toggle:"collapse", target:"#collapseFilters"} %>
+    <%= link_to 'Filtres <i class="fas fa-chevron-down"></i>'.html_safe, '#', id:"filter-button", class:"filter-cave", data: {toggle:"collapse", target:"#collapseFilters"} %>
+    <%= link_to '<i class="fas fa-undo-alt"></i>'.html_safe, cave_path(@cave), id: 'reset-filters' %>
   </div>
   <div id='collapseFilters' class="collapse" >
   <%= render "cave_filter", cave: @cave %>
