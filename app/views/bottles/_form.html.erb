@@ -2,4 +2,5 @@
   <%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..120), selected: 1 %>
   <%= f.association :cave, collection: current_user.caves, include_blank: false %>
   <%= f.submit "Ajouter à ma cave", class:'add-bottle-btn'%>
+  <%= link_to '<i class="fas fa-chevron-left"></i> Retour aux vins'.html_safe, wines_path, class: "back-to-cave" %>
 <% end %>

@@ -1,25 +1,21 @@
-<div class="cave-bottle-page-title remove-bottle-title">
-   <h1>Sortir des bouteilles de ma cave</h1>
-</div>
-
-<div class="wine-index-card">
-
-    <div class="wine-image">
-      <%= cl_image_tag @bottle.wine.photo.key, class: "wine-index-img bottle-form-img" %>
-    </div>
-
-    <div class="wine-index-card-content bottle-form-card">
-      <div class="wine-index-title">
-        <h1><strong><%= @bottle.wine.name %> - <%= @bottle.wine.millesime %></strong></h1>
+<div class="cave-show-wine-card cave-card-color">
+      <div class="wine-image">
+        <%= cl_image_tag @bottle.wine.photo.key, class: "cave-show-wine-img" %>
       </div>
-      <div class="wine-index-description">
-        <h3> <strong>Region:</strong> <%= @bottle.wine.appelation.region.name %> </h3>
-        <h3> <strong>Appelation:</strong> <%= @bottle.wine.appelation.name %> </h3>
-      </div>
+      <div class="cave-show-wine-information">
+        <div class="cave-show-wine-title">
+          <h1><strong><%= @bottle.wine.name.first(40) %> <%= @bottle.wine.millesime %></strong></h1>
+        </div>
+        <div class="cave-show-wine-description">
+          <h3> <strong>Region:</strong> <%= @bottle.wine.appelation.region.name %> </h3>
+          <h3> <strong>Appelation:</strong> <%= @bottle.wine.appelation.name %> </h3>
+          <h3> <strong>Qty: <%= @bottle.quantity %> </strong></h3>
+        </div>
 
-      <!--Apogée percentage calcul-->
+
+         <!--Apogée percentage calcul-->
       <% now_diff = Time.now.year - @bottle.wine.apogee_start %>
-      <% apogee_duration = @bottle.wine.apogee_end - @bottle.wine.apogee_start%>
+      <% apogee_duration = @bottle.wine.apogee_end - @bottle.wine.apogee_start %>
       <% percentage = (now_diff < 0) ? 0 : ((now_diff).to_f/apogee_duration)*100 %>
       <!--Before apogée percentage calcul-->
       <% now_diff_before = Time.now.year - @bottle.wine.millesime %>
@@ -30,7 +26,6 @@
       <% now_diff_after = Time.now.year - @bottle.wine.apogee_end %>
       <% percentage_after = Time.now.year <= @bottle.wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
       <% percentage_after = 100 if @bottle.wine.apogee_end < Time.now.year %>
-
       <% cursor_pos = 40*(percentage_before/100) + 117*(percentage/100) + 40*(percentage_after/100)%>
 
       <div class="wine-apogee">
@@ -50,18 +45,6 @@
       <div class="triangle" style="left: <%= cursor_pos.to_i - 4 %>px;" ><i class="fas fa-caret-down"></i></div>
     </div>
 
-
+      </div>
 
     </div>
-
-    <div class="quantity-form">
-      <p>Qte : <%= @bottle.quantity %></p>
-    </div>
-
-  </div>
-
-<%= simple_form_for @bottle do |f| %>
-<%= f.input :quantity, label: "Combien de bouteilles ?", :collection => (1..f.object.quantity), selected: 1 %>
-  <%= f.submit "Sortir une bouteille", class: "take-bottle-out-btn"%>
-  <%= link_to '<i class="fas fa-chevron-left"></i> Retour à la cave'.html_safe, cave_path(@bottle.cave), class: "back-to-cave" %>
-<% end %>
