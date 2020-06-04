@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = policy_scope(Review).where(user: current_user).where(liked: nil)
+    history
   end
 
   def update
