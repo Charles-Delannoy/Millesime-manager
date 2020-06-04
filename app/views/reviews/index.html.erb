@@ -28,14 +28,14 @@
               <%= simple_form_for [review] do |f| %>
               <%= f.hidden_field :liked, value: true %>
               <%= f.hidden_field :id, value: review.id %>
-              <%= button_tag type: "submit", class: "my-btn btn-card booking-validation-btn" do %>
+              <%= button_tag type: "submit", class: "booking-validation-btn" do %>
               <i class="fas fa-thumbs-up liked"></i>
               <% end %>
               <% end %>
               <%= simple_form_for [review] do |f| %>
               <%= f.hidden_field :liked, value: false %>
               <%= f.hidden_field :id, value: review.id %>
-              <%= button_tag type: "submit", class: "my-btn btn-card booking-validation-btn" do %>
+              <%= button_tag type: "submit", class: "booking-validation-btn" do %>
               <i class="fas fa-thumbs-down"></i>
               <% end %>
               <% end %>
@@ -48,7 +48,7 @@
 <% end %>
 
 <div class="history-category">
-  <h4>Les vins que j'apprecie</h4>
+  <h1>Les vins que j'ai apprecié</h1>
 </div>
 
 <div class="liked-history-cards">
@@ -69,7 +69,7 @@
   </div>
 
 <div class="history-category">
-  <h4>Les vins que j'apprecie moins</h4>
+  <h1>Les vins que j'ai moins apprecié</h1>
 </div>
 
 <div class="unliked-history-cards">
