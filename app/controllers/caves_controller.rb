@@ -30,7 +30,7 @@ class CavesController < ApplicationController
     end
     @redbottles = @redbottles.order(updated_at: :desc)
     @whitebottles = @whitebottles.order(updated_at: :desc)
-    @pinkbottles = @pinkbottles.ordere(updated_at: :desc)
+    @pinkbottles = @pinkbottles.order(updated_at: :desc)
     authorize @cave
   end
 
