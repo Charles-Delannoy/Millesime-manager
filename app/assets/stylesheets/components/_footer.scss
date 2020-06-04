@@ -31,3 +31,11 @@
 #reward-logo {
   width: 40px;
 }
+
+.footer .footer-item svg {
+  fill:$gray-footer;
+}
+
+.footer .footer-item.active-item svg {
+  fill: $primary-color;
+}
