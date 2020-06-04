@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: center;
-  height: 60px;
+  height: 80px;
   background: $primary-color;
   position: fixed;
   top: 0;
@@ -17,6 +17,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
+  margin-top: 25px;
 }
 
 .navbar-nav > .nav-link {

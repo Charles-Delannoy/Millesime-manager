@@ -1,7 +1,7 @@
 .custom-container{
-  padding: 70px 10px;
+  padding: 90px 10px 70px 10px;
   background-color: #F5F5F5;
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
   margin: 0 auto;
   width: 100vw;
   overflow: hidden;
@@ -10,7 +10,7 @@
 .custom-container-home{
   padding: 90px 10px;
   background-color: $primary-color;
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
   margin: 0 auto;
   width: 100vw;
   overflow: hidden;
