@@ -31,8 +31,10 @@
   width: 40px;
 }
 
-.active-item svg {
-  // filter: grayscale(1);
-  fill: gray;
+.footer .footer-item svg {
+  fill:$gray-footer;
+}
 
+.footer .footer-item.active-item svg {
+  fill: $primary-color;
 }

@@ -30,3 +30,11 @@
 #reward-logo-white {
   width: 40px;
 }
+
+.footer-home .footer-item svg {
+  fill: white;
+}
+
+.footer-home .footer-item.active-item svg {
+  fill: $gray-footer;
+}
