@@ -1,18 +1,12 @@
 
 <div class="container-reviews">
+  <% unless @reviews.empty?  %>
+
   <div class="review-page-title">
     <h1> Mes évaluations en attente </h1>
   </div>
 </div>
 
-<% if @reviews.empty?  %>
-  <div class="empty-review">
-    <div class="empty-review-content">
-      <p>Vous n'avez aucune évaluation en attente</p>
-    </div>
-  </div>
-
-<% else %>
   <div class="container-scroll">
     <div class="review-cards">
       <% @reviews.each do |review| %>
