@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: center;
   height: 80px;
-  background: $primary-color;
+  background: #F5F5F5;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -9,9 +9,7 @@
 }
 
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+
 
 .navbar-lewagon .navbar-logo img {
   width: 46px;
@@ -20,26 +18,5 @@
   margin-top: 25px;
 }
 
-.navbar-nav > .nav-link {
-  color: white !important;
-}
 
-.navbar-light .navbar-nav .nav-link {
-  color: white;
-}
 
-.application-title {
-  color: white;
-  font-family: 'Montserrat Subrayada', sans-serif;
-  width: 36px;
-}
-
-.navbar-btn {
-  color: rgba(0, 0, 0, 0.5);
-  border-color: white;
-  background-color: transparent;
-}
-
-#navbar-mm .navbar-toggler-icon {
-    filter: invert(1);
-}
