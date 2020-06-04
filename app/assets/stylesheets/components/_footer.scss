@@ -31,6 +31,8 @@
   width: 40px;
 }
 
-#active-item {
-  filter: grayscale(1);
+.active-item svg {
+  // filter: grayscale(1);
+  fill: gray;
+
 }
