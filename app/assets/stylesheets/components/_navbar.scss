@@ -38,3 +38,12 @@
 #navbar-mm .navbar-toggler-icon {
     filter: invert(1);
 }
+
+.min_navbar {
+  width: 100vw;
+  z-index: 1000;
+  height: 40px;
+  background: #F5F5F5;
+  position: fixed;
+  top: 0;
+}
