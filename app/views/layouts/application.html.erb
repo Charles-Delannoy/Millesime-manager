@@ -51,6 +51,8 @@
     <div <% unless current_page?('/')%> class="custom-container"<% else %>class="custom-container-home"<% end %>>
 
       <%= yield %>
+
+    </div>
     </div>
     <% unless current_page?('/')%>
       <%= render "shared/footer" %>
