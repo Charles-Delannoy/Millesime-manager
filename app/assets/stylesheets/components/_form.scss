@@ -13,27 +13,67 @@
 }
 
 .add-bottle-btn {
-  color: $primary-color;
+  color: white;
   border: 1px solid $primary-color;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
-  background-color: white;
-  margin: 0 0 0 80px;
+  background-color: $primary-color;
+  width: 100%;
+  margin-top: 18px;
   &:hover {
     opacity: 1;
-    color: $primary-color;
+    color: white;
+    border: 1px solid $secondary-color;
+    background-color: $secondary-color;
     text-decoration: none;
     border-radius: 50px;
   }
   &:focus {
-    opacity: 1;
-    color: $primary-color;
+    opacity: 0.6;
+    color: white;
     text-decoration: none;
     border-radius: 50px;
   }
 }
 
+// form card adjustement
 
+.remove-bottle-title {
+  margin-bottom: 120px;
+}
+
+.add-bottle-title {
+  margin-bottom: 100px;
+}
+
+.bottle-form-card {
+  margin-left: 20px;
+}
+
+.wine-index-card {
+.bottle-form-img {
+    width: 200px;
+    left: -44px
+  }
+}
+
+.quantity-form {
+  color: $primary-color;
+  width: 100px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.back-to-cave {
+  color: black;
+  position: absolute;
+  left: 10px;
+  bottom: 70px;
+  &:hover {
+    text-decoration: none;
+    color: $primary-color;
+  }
+}

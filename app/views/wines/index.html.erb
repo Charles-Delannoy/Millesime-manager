@@ -22,64 +22,6 @@
 
 <%= link_to @cave.present? ? cave_wine_path(@cave, wine) : wine_path(wine), class: "wine-index-card-link" do %>
 
-  <div class="wine-index-card">
-
-    <div class="wine-image">
-      <%= cl_image_tag wine.photo.key, class: "wine-index-img" %>
-    </div>
-
-    <div class="wine-index-card-content">
-      <div class="wine-index-title">
-        <h1><strong><%= wine.name %> - <%= wine.millesime %></strong></h1>
-      </div>
-      <div class="wine-index-description">
-        <h3> <strong>Region:</strong> <%= wine.appelation.region.name %> </h3>
-        <h3> <strong>Appelation:</strong> <%= wine.appelation.name %> </h3>
-      </div>
-
-      <!--Apogée percentage calcul-->
-      <% now_diff = Time.now.year - wine.apogee_start %>
-      <% apogee_duration = wine.apogee_end - wine.apogee_start%>
-      <% percentage = (now_diff < 0) ? 0 : ((now_diff).to_f/apogee_duration)*100 %>
-      <!--Before apogée percentage calcul-->
-      <% now_diff_before = Time.now.year - wine.millesime %>
-      <% before_duration = wine.apogee_start - wine.millesime %>
-      <% percentage_before = (now_diff_before == 0) ? 0 : ((now_diff_before).to_f/before_duration)*100 %>
-      <% percentage_before = 100 if Time.now.year > wine.apogee_start %>
-      <!--Before apogée percentage calcul-->
-      <% now_diff_after = Time.now.year - wine.apogee_end %>
-      <% percentage_after = Time.now.year <= wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
-      <% percentage_after = 100 if wine.apogee_end < Time.now.year %>
-
-      <% cursor_pos = 40*(percentage_before/100) + 117*(percentage/100) + 40*(percentage_after/100)%>
-
-      <div class="wine-apogee">
-        <div class="global-progress">
-          <div class="progress before-a">
-          </div>
-          <div class="progress during-a">
-          </div>
-          <div class="progress after-a">
-          </div>
-      </div>
-      <div class="apogee-years">
-        <h3><%= wine.apogee_start %></h3>
-        <h3 class="apogee-flag">Apogée</h3>
-        <h3><%= wine.apogee_end %></h3>
-      </div>
-      <div class="triangle" style="left: <%= cursor_pos.to_i - 4 %>px;" ><i class="fas fa-caret-down"></i></div>
-    </div>
-
-
-
-    </div>
-    <div class="add-bottle-in">
-      <% if @cave.present? %>
-        <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_cave_wine_bottle_path(@cave, wine), id:"favicon-add-cave" %>
-      <% else %>
-        <%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_wine_bottle_path(wine), id:"favicon-add-cave"%>
-      <% end %>
-    </div>
-  </div>
+  <%= render "card", wine: wine %>
 <% end %>
 <% end %>
