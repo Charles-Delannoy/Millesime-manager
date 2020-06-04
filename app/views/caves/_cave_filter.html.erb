@@ -5,7 +5,6 @@
   <%= select_tag "appelation", options_from_collection_for_select(@appelations, "id", "name", params[:appelation]), :prompt => "Selectionner une appelation" , class: "bottles-filter", id: "appelation-filter"%>
 
   <div class="filter-action">
-  <%= link_to '<i class="fas fa-undo-alt"></i>'.html_safe, cave_path(@cave), id: 'reset-filters' %>
   <%= submit_tag "Trouvez votre bouteille", class: "filter-btn", data: {turbolinks: "false"} %>
   </div>
 
