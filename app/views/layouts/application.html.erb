@@ -5,8 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag %>
-    <link rel="apple-touch-startup-image" href="./launch.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="<%= asset_path 'splashscreens/iphone5_splash.png' %>" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/iphone6_splash.png' %>" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/iphoneplus_splash.png' %>" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/iphonex_splash.png' %>" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/iphonexr_splash.png' %>" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/iphonexsmax_splash.png' %>" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/ipad_splash.png' %>" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/ipadpro1_splash.png' %>" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/ipadpro3_splash.png' %>" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="<%= asset_path 'splashscreens/ipadpro2_splash.png' %>" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name='viewport' content='viewport-fit=cover, width=device-width, initial-scale=1.0, shrink-to-fit=no'>
 <!--     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
@@ -21,7 +30,13 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <%= render 'shared/navbar' %>
+
+    <% if current_page?('/')%>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/minimal_navbar' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
     <div <% unless current_page?('/')%> class="custom-container"<% else %>class="custom-container-home"<% end %>>
 
