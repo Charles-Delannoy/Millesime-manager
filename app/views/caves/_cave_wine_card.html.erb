@@ -4,59 +4,59 @@
   <% like = bottle.wine.reviews.where(user: current_user)[0].liked ? '<i class="fas fa-star"></i>' : "" %>
 <% end %>
 
-<%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
-  <% unless bottle.quantity == 0 %>
-    <div class="cave-show-wine-card cave-card-color">
-      <div class="wine-image">
-        <%= cl_image_tag bottle.wine.photo.key, class: "cave-show-wine-img" %>
-      </div>
-      <div class="cave-show-wine-information">
-        <div class="cave-show-wine-title">
-          <h1><% unless like == "" %><em class="like"><%= like.html_safe %></em><% end %><strong><%= bottle.wine.name.first(40) %> <%= bottle.wine.millesime %></strong></h1>
+<% unless bottle.quantity == 0 %>
+  <%= link_to bottle_path(bottle), class: "cave-show-card-link" do %>
+      <div class="cave-show-wine-card cave-card-color">
+        <div class="wine-image">
+          <%= cl_image_tag bottle.wine.photo.key, class: "cave-show-wine-img" %>
         </div>
-        <div class="cave-show-wine-description">
-          <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
-          <h3> <strong>Appelation:</strong> <%= bottle.wine.appelation.name %> </h3>
-          <h3> <strong>Qty: <%= bottle.quantity %> </strong></h3>
+        <div class="cave-show-wine-information">
+          <div class="cave-show-wine-title">
+            <h1><% unless like == "" %><em class="like"><%= like.html_safe %></em><% end %><strong><%= bottle.wine.name.first(40) %> <%= bottle.wine.millesime %></strong></h1>
+          </div>
+          <div class="cave-show-wine-description">
+            <h3> <strong>Region:</strong> <%= bottle.wine.appelation.region.name %> </h3>
+            <h3> <strong>Appelation:</strong> <%= bottle.wine.appelation.name %> </h3>
+            <h3> <strong>Qty: <%= bottle.quantity %> </strong></h3>
+          </div>
+
+
+           <!--Apogée percentage calcul-->
+        <% now_diff = Time.now.year - bottle.wine.apogee_start %>
+        <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start %>
+        <% percentage = (now_diff < 0) ? 0 : ((now_diff).to_f/apogee_duration)*100 %>
+        <!--Before apogée percentage calcul-->
+        <% now_diff_before = Time.now.year - bottle.wine.millesime %>
+        <% before_duration = bottle.wine.apogee_start - bottle.wine.millesime %>
+        <% percentage_before = (now_diff_before == 0) ? 0 : ((now_diff_before).to_f/before_duration)*100 %>
+        <% percentage_before = 100 if Time.now.year > bottle.wine.apogee_start %>
+        <!--Before apogée percentage calcul-->
+        <% now_diff_after = Time.now.year - bottle.wine.apogee_end %>
+        <% percentage_after = Time.now.year <= bottle.wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
+        <% percentage_after = 100 if bottle.wine.apogee_end < Time.now.year %>
+        <% cursor_pos = 40*(percentage_before/100) + 117*(percentage/100) + 40*(percentage_after/100)%>
+
+        <div class="wine-apogee">
+          <div class="global-progress">
+            <div class="progress before-a">
+            </div>
+            <div class="progress during-a">
+            </div>
+            <div class="progress after-a">
+            </div>
         </div>
-
-
-         <!--Apogée percentage calcul-->
-      <% now_diff = Time.now.year - bottle.wine.apogee_start %>
-      <% apogee_duration = bottle.wine.apogee_end - bottle.wine.apogee_start %>
-      <% percentage = (now_diff < 0) ? 0 : ((now_diff).to_f/apogee_duration)*100 %>
-      <!--Before apogée percentage calcul-->
-      <% now_diff_before = Time.now.year - bottle.wine.millesime %>
-      <% before_duration = bottle.wine.apogee_start - bottle.wine.millesime %>
-      <% percentage_before = (now_diff_before == 0) ? 0 : ((now_diff_before).to_f/before_duration)*100 %>
-      <% percentage_before = 100 if Time.now.year > bottle.wine.apogee_start %>
-      <!--Before apogée percentage calcul-->
-      <% now_diff_after = Time.now.year - bottle.wine.apogee_end %>
-      <% percentage_after = Time.now.year <= bottle.wine.apogee_end ? 0 : ((now_diff_after).to_f/before_duration)*100 %>
-      <% percentage_after = 100 if bottle.wine.apogee_end < Time.now.year %>
-      <% cursor_pos = 40*(percentage_before/100) + 117*(percentage/100) + 40*(percentage_after/100)%>
-
-      <div class="wine-apogee">
-        <div class="global-progress">
-          <div class="progress before-a">
-          </div>
-          <div class="progress during-a">
-          </div>
-          <div class="progress after-a">
-          </div>
+        <div class="apogee-years">
+          <h3><%= bottle.wine.apogee_start %></h3>
+          <h3 class="apogee-flag">Apogée</h3>
+          <h3><%= bottle.wine.apogee_end %></h3>
+        </div>
+        <div class="triangle" style="left: <%= cursor_pos.to_i - 4 %>px;" ><i class="fas fa-caret-down"></i></div>
       </div>
-      <div class="apogee-years">
-        <h3><%= bottle.wine.apogee_start %></h3>
-        <h3 class="apogee-flag">Apogée</h3>
-        <h3><%= bottle.wine.apogee_end %></h3>
-      </div>
-      <div class="triangle" style="left: <%= cursor_pos.to_i - 4 %>px;" ><i class="fas fa-caret-down"></i></div>
-    </div>
 
-      </div>
-      <div class="take-bottle-out">
-        <%= link_to '<i class="fas fa-minus"></i>'.html_safe, edit_bottle_path(bottle), id:"favicon-add-cave" %>
       </div>
     </div>
   <% end %>
+        <div class="take-bottle-out">
+          <%= link_to '<i class="fas fa-minus"></i>'.html_safe, edit_bottle_path(bottle), id:"favicon-add-cave" %>
+        </div>
 <% end %>

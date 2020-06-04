@@ -39,6 +39,7 @@
 #favicon-add-cave {
   color: white;
   font-size: 12px;
+
 }
 // END FOR CREATE CAVE BUTTON
 
@@ -140,6 +141,7 @@
 }
 
 .take-bottle-out {
+  z-index: 1000;
   height: 20px;
   width: 20px;
   min-width: 20px;
@@ -148,8 +150,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 10px;
-  right: 10px;
+  top: 60px;
+  right: 25px;
   background-color: $green-contrasting;
   &:hover {
     opacity: 0.7;
