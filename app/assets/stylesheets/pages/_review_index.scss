@@ -1,16 +1,12 @@
 .empty-review {
   width: 95vw;
-  min-height: calc(100vh - 220px);
-  background-image: image_url('wine-review.jpeg');
-  background-size: cover;
-  color: white;
   text-align: center;
   font-weight: bold;
-  margin-top: 20px;
 }
 
 .empty-review-content {
-  padding-top: 40px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   p {
     font-size: 24px;
     color: $primary-color;

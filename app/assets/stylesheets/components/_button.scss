@@ -273,6 +273,9 @@
 .booking-validation-btn {
   border: none;
   background-color: white;
+  &:focus{
+    outline: none;
+  }
 }
 
 // CAVE INDEX BTN
