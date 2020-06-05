@@ -5,7 +5,7 @@
   background-color: white;
   height: 193px;
   // box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
-  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.18);
+  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.60);
   margin: 50px auto;
   padding-right: 10px;
   padding-left: 100px;
@@ -44,6 +44,21 @@
   }
 }
 
+.wine-index-title-form {
+   border-radius: 0px 10px 10px 0px;
+  // width: 100%;
+  position: relative;
+  padding-top: 10px;
+  h1 {
+    color: $black;
+    font-size: 19px;
+  }
+  p {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
+
 .wine-index-description {
   overflow: hidden;
   color: black;
@@ -64,7 +79,7 @@
   background-color: $light-gray;
   height: 200px;
   // box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
-  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.18);
+  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.60);
   margin: 50px auto;
   margin-right: -5px;
   padding-right: 10px;
@@ -272,7 +287,7 @@
   background-color: white;
   // height: 200px;
   width: 80vw;
-  box-shadow: -4px 13px 20px -21px rgba(0,0,0,0.75);
+  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.60);
   position: relative;
   margin-top: 25px;
   margin-right: 25px;
