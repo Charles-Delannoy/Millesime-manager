@@ -25,7 +25,7 @@
 }
 
 .wine-show-card {
-  background-color: $wine-show-demo2;
+  background-color: white;
   position: relative;
   margin: 0px 0 35px 0;
   padding: 10px 0;
@@ -58,7 +58,7 @@
   h3 {
     font-size: 18px;
     font-weight: 600;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid $background-demo2;
     margin-top: 0;
     margin-bottom: 0px;
     padding-bottom: 4px;
