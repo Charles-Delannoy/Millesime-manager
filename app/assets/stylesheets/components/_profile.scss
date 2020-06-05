@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  background-color: $light-gray;
+  background-color: white;
   border-radius: 4px;
   margin: 20px auto;
   .profil-img {
@@ -58,7 +58,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: $light-green;
+    background-color: $green-contrasting;
     border-radius: 4px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
     margin-bottom: 20px;
@@ -70,7 +70,7 @@
     &:focus {
       opacity: 1;
       text-decoration: none;
-      background-color: $green-contrasting;
+      background-color: $light-green;
     }
   }
 }
