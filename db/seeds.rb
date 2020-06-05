@@ -47,7 +47,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
       p bottle_name = bottle_full_name[0..(bottle_full_name.length - 5)].strip
       p millesime = bottle_full_name[-4..-1].to_i
 
-      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé" || bottle_name == "AROMES ROSé" || bottle_name == "Sylvaner Collection Privée Kuehn"
+      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé" || bottle_name == "AROMES ROSé" || bottle_name == "Sylvaner Collection Privée Kuehn" || bottle_name == "SANCERRE ROSE"
         p 'NON VALID'
       else
 
