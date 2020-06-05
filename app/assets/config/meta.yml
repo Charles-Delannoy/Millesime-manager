@@ -1,5 +1,5 @@
 meta_product_name: "Millesime Manager"
 meta_title: "Millesime Manager - La meilleure façon de boire son vin"
 meta_description: "L'application de gestion de sa cave à vin avec indicateur d'apogée"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
