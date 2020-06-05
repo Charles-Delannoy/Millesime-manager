@@ -9,13 +9,11 @@
     </div>
 
     <div class="wine-index-card-content bottle-form-card">
-      <div class="wine-index-title">
-        <h1><strong><%= @bottle.wine.name %> - <%= @bottle.wine.millesime %></strong></h1>
+      <div class="wine-index-title-form">
+        <h1><strong><%= @bottle.wine.name %> <%= @bottle.wine.millesime %></strong></h1>
+        <p>Qte : <%= @bottle.quantity %></p>
       </div>
-      <div class="wine-index-description">
-        <h3> <strong>Region:</strong> <%= @bottle.wine.appelation.region.name %> </h3>
-        <h3> <strong>Appelation:</strong> <%= @bottle.wine.appelation.name %> </h3>
-      </div>
+
 
       <!--Apogée percentage calcul-->
       <% now_diff = Time.now.year - @bottle.wine.apogee_start %>
@@ -53,10 +51,10 @@
 
 
     </div>
-
+<!--
     <div class="quantity-form">
       <p>Qte : <%= @bottle.quantity %></p>
-    </div>
+    </div> -->
 
   </div>
 
