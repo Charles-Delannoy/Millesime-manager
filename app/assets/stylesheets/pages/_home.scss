@@ -3,13 +3,20 @@
   min-height: 100vh;
   min-width: 100vw;
   overflow: hidden;
+}
 
+.home-page-image {
+  display: flex;
+  .home-picture {
+    margin: auto;
+  }
 }
 
 .home-page-title {
   position: absolute;
   text-align: center;
   padding-top: 20px;
+  width: 100%;
   h1 {
     font-family: 'Montserrat', sans-serif;
     color: white;

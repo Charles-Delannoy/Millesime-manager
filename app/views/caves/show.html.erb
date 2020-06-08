@@ -57,7 +57,7 @@
       </div>
         <div class="wine-ribbon">
           <% @redbottles.each do |redbottle| %>
-            <div class="red-wine-card">
+            <div class="red-wine-card <%= "add-margin" if @redbottles.count == 1 %>">
               <%= render "cave_wine_card", bottle: redbottle %>
             </div>
           <% end %>
@@ -78,7 +78,7 @@
         </div>
         <div class="wine-ribbon">
           <% @whitebottles.each do |whitebottle| %>
-            <div class="white-wine-card">
+            <div class="white-wine-card <%= "add-margin" if @whitebottles.count == 1 %>">
               <%= render "cave_wine_card", bottle: whitebottle %>
             </div>
           <% end %>
@@ -99,7 +99,7 @@
       </div>
         <div class="wine-ribbon">
           <% @pinkbottles.each do |pinkbottle| %>
-            <div class="pink-wine-card">
+            <div class="pink-wine-card <%= "add-margin" if @pinkbottles.count == 1 %>">
               <%= render "cave_wine_card", bottle: pinkbottle %>
             </div>
           <% end %>
