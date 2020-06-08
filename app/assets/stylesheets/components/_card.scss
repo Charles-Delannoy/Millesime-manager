@@ -109,7 +109,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding-right: 60px;
   h1 {
     color: $black;
     font-size: 15px;
@@ -128,6 +127,7 @@
   h3 {
     font-size: 12px;
     font-family: 'Montserrat', sans-serif;
+    width: 170px;
   }
 }
 
