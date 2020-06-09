@@ -17,7 +17,7 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
   #   p browser.css("a.ns-LoadMore-btn")
   # end
   page = Nokogiri.parse(browser.body)
-  page.search('.ns-Product a.ns-Button').each do |element|
+  browser.at_css('.ns-Product a.ns-Button').each do |element|
     p bottle_url = "https://www.nicolas.com/#{element.attribute('href').value}"
   end
   browser.screenshot(path: "google#{i}.png")
