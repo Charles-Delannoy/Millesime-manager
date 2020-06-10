@@ -1,5 +1,5 @@
 .custom-container{
-  padding: 45px 10px 70px 10px;
+  padding: 45px 10vw 70px 10vw;
   background-color: $background-demo2;
   min-height: 100vh;
   margin: 0 auto;
@@ -19,3 +19,22 @@
 
 
 
+@media (max-width: 808px) {
+.custom-container{
+  padding: 45px 10px 70px 10px;
+  background-color: $background-demo2;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.custom-container-home{
+  padding: 90px 10px;
+  background-color: $primary-color;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100vw;
+  overflow: hidden;
+}
+}
