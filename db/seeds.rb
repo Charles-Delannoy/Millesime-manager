@@ -7,34 +7,44 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
+require 'ferrum'
 
-puts "Destroy assemblages"
-Assemblage.destroy_all
-puts "Destroy cepages"
-Cepage.destroy_all
-puts "Destroy pairings"
-Pairing.destroy_all
-puts "Destroy meals"
-Meal.destroy_all
-puts "Destroy bottles"
-Bottle.destroy_all
-puts "Destroy reviews"
-Review.destroy_all
-puts "Destroy wines"
-Wine.destroy_all
-puts "Destroy castles"
-Castle.destroy_all
-puts "Destroy appelations"
-Appelation.destroy_all
-puts "Destroy regions"
-Region.destroy_all
+# puts "Destroy assemblages"
+# Assemblage.destroy_all
+# puts "Destroy cepages"
+# Cepage.destroy_all
+# puts "Destroy pairings"
+# Pairing.destroy_all
+# puts "Destroy meals"
+# Meal.destroy_all
+# puts "Destroy bottles"
+# Bottle.destroy_all
+# puts "Destroy reviews"
+# Review.destroy_all
+# puts "Destroy wines"
+# Wine.destroy_all
+# puts "Destroy castles"
+# Castle.destroy_all
+# puts "Destroy appelations"
+# Appelation.destroy_all
+# puts "Destroy regions"
+# Region.destroy_all
 
 base_url = "https://www.nicolas.com/fr/"
 base_html_doc = Nokogiri::HTML(open(base_url).read)
 base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
-  p wine_url = "https://www.nicolas.com#{url.attribute('href').value}"
 
-  bx_doc = Nokogiri::HTML(open(wine_url).read)
+  p wine_url = "https://www.nicolas.com#{url.attribute('href').value}"
+  browser = Ferrum::Browser.new()
+  browser.goto wine_url
+  unless browser.at_css("a.ns-LoadMore-btn").nil?
+    while browser.evaluate("document.querySelector('a.ns-LoadMore-btn').getAttribute('style')").nil?
+      browser.evaluate("document.querySelector('a.ns-LoadMore-btn').click()")
+      # p browser.css('a[href]').find { |link| link.text == 'Afficher plus de produits' }.click
+    end
+  end
+  # bx_doc = Nokogiri::HTML(open(wine_url).read)
+  bx_doc = Nokogiri.parse(browser.body)
   bx_doc.search('.ns-Product a.ns-Button').each do |element|
     bottle_url = "https://www.nicolas.com/#{element.attribute('href').value}"
 
@@ -47,7 +57,11 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
       p bottle_name = bottle_full_name[0..(bottle_full_name.length - 5)].strip
       p millesime = bottle_full_name[-4..-1].to_i
 
-      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé" || bottle_name == "AROMES ROSé" || bottle_name == "Sylvaner Collection Privée Kuehn" || bottle_name == "SANCERRE ROSE" || bottle_name == "Château Bellevue La Forêt Rosé"
+      reject_bottle = ["CHINON ROSE JM RAFFAULT", "Maison Castel Grande Réserve Pinot Noir Rosé", "AROMES ROSé",
+                       "Sylvaner Collection Privée Kuehn", "SANCERRE ROSE", "Château Bellevue La Forêt Rosé", "1/2 CHÂTEAU BEL AIR",
+                       "Château Haut De La Bécade", "Le Loup dans la Bergerie", "Le Masoulier", "MAS DE DAUMAS GASSAC"]
+
+      if millesime < 1000 || reject_bottle.include?(bottle_name)
         p 'NON VALID'
       else
 
@@ -111,84 +125,90 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
         end
 
         #CREATE THE WINE OBJECT
-        my_wine = Wine.new(name: bottle_name, millesime: millesime, apogee_start: apogee_start, apogee_end: apogee_end, color: color, degree: degre)
-        my_wine.castle = my_castle
-        my_wine.appelation = my_appelation
-        img = URI.open(img_url)
-        my_wine.photo.attach(io: img, filename: "#{bottle_name}.png", content_type: 'image/png')
-        my_wine.save
-        #CREATE THE WINE OBJECT
 
-        icons = {
-          poissonensauce: "<i class='fas fa-fish'></i>",
-          charcuterie: "<i class='fas fa-bacon'></i>",
-          fromagedoux: "<i class='fas fa-cheese'></i>",
-          fromagecorsé: "<i class='fas fa-cheese'></i>",
-          tarte: "<i class='fas fa-chart-pie'></i>",
-          viandeblanche: "<i class='fas fa-egg'></i>",
-          poissongrillé: "<i class='fas fa-fish'></i>",
-          vianderouge: "<i class='fas fa-utensils'></i>",
-          gibier: "<i class='fas fa-drumstick-bite'></i>",
-          gâteau: "<i class='fas fa-birthday-cake'></i>",
-          coquillagesetcrustacés: "<i class='fas fa-water'></i>",
-          foiegras: "<i class='fas fa-bread-slice'></i>",
-          agneau: "<i class='fas fa-cloud-meatball'></i>",
-        }
-        # Meal associations
-        html_doc.search('.ns-AgreementList-description').each do |meal|
-          p meal_name = meal.text
-          if Meal.where(name: meal_name).empty?
-            my_meal = Meal.new(name: meal_name)
-            icon = meal_name.gsub(" ","").downcase.to_sym
-            my_meal.icon = icons[icon]
-            my_meal.save
-          else
-            my_meal = Meal.where(name: meal_name)[0]
-          end
-          my_pairing = Pairing.new()
-          my_pairing.wine = my_wine
-          my_pairing.meal = my_meal
-          my_pairing.save
-        end
+        if Wine.where(name: bottle_name, millesime: millesime, color: color).empty?
+          my_wine = Wine.new(name: bottle_name, millesime: millesime, apogee_start: apogee_start, apogee_end: apogee_end, color: color, degree: degre)
+          my_wine.castle = my_castle
+          my_wine.appelation = my_appelation
+          img = URI.open(img_url)
+          my_wine.photo.attach(io: img, filename: "#{bottle_name}.png", content_type: 'image/png')
+          my_wine.save
 
 
-        # noms et pourcentage des cepages
-        i = 1
-        cepages = html_doc.search('.ns-Chart-legend li')
-        nb_cepages = cepages.length
-        cepages_hash = {}
-        cepages.each do |cepage_array|
-          if cepage_array.search('span').length == 1
-            cepage_percentage = 100 / nb_cepages
-            cepage_array.search('span').each do |cepage|
-              cepages_hash[cepage.text] = cepage_percentage
+
+          #CREATE THE WINE OBJECT
+
+          icons = {
+            poissonensauce: "<i class='fas fa-fish'></i>",
+            charcuterie: "<i class='fas fa-bacon'></i>",
+            fromagedoux: "<i class='fas fa-cheese'></i>",
+            fromagecorsé: "<i class='fas fa-cheese'></i>",
+            tarte: "<i class='fas fa-chart-pie'></i>",
+            viandeblanche: "<i class='fas fa-egg'></i>",
+            poissongrillé: "<i class='fas fa-fish'></i>",
+            vianderouge: "<i class='fas fa-utensils'></i>",
+            gibier: "<i class='fas fa-drumstick-bite'></i>",
+            gâteau: "<i class='fas fa-birthday-cake'></i>",
+            coquillagesetcrustacés: "<i class='fas fa-water'></i>",
+            foiegras: "<i class='fas fa-bread-slice'></i>",
+            agneau: "<i class='fas fa-cloud-meatball'></i>",
+          }
+          # Meal associations
+          html_doc.search('.ns-AgreementList-description').each do |meal|
+            p meal_name = meal.text
+            if Meal.where(name: meal_name).empty?
+              my_meal = Meal.new(name: meal_name)
+              icon = meal_name.gsub(" ","").downcase.to_sym
+              my_meal.icon = icons[icon]
+              my_meal.save
+            else
+              my_meal = Meal.where(name: meal_name)[0]
             end
-          else
-            cepage_name = cepage_array.text.strip.split(':')[0].strip
-            cepage_percentage = cepage_array.text.strip.split(':')[1].strip.split("%")[0].to_i
-            cepages_hash[cepage_name] = cepage_percentage
+            my_pairing = Pairing.new()
+            my_pairing.wine = my_wine
+            my_pairing.meal = my_meal
+            my_pairing.save
           end
-        end
-        cepages_hash.each do |cep, per|
-          if Cepage.where(name: cep).empty?
-            my_cepage = Cepage.new(name: cep)
-            my_cepage.save
-          else
-            my_cepage = Cepage.where(name: cep)[0]
-          end
-          my_assemblage = Assemblage.new(percentage: per)
-          my_assemblage.wine = my_wine
-          my_assemblage.cepage = my_cepage
-          my_assemblage.save
-        end
 
 
+          # noms et pourcentage des cepages
+          i = 1
+          cepages = html_doc.search('.ns-Chart-legend li')
+          nb_cepages = cepages.length
+          cepages_hash = {}
+          cepages.each do |cepage_array|
+            if cepage_array.search('span').length == 1
+              cepage_percentage = 100 / nb_cepages
+              cepage_array.search('span').each do |cepage|
+                cepages_hash[cepage.text] = cepage_percentage
+              end
+            else
+              cepage_name = cepage_array.text.strip.split(':')[0].strip
+              cepage_percentage = cepage_array.text.strip.split(':')[1].strip.split("%")[0].to_i
+              cepages_hash[cepage_name] = cepage_percentage
+            end
+          end
+          cepages_hash.each do |cep, per|
+            if Cepage.where(name: cep).empty?
+              my_cepage = Cepage.new(name: cep)
+              my_cepage.save
+            else
+              my_cepage = Cepage.where(name: cep)[0]
+            end
+            my_assemblage = Assemblage.new(percentage: per)
+            my_assemblage.wine = my_wine
+            my_assemblage.cepage = my_cepage
+            my_assemblage.save
+          end
+
+      end
       end
       p "---------------------------"
     end
   end
 end
 
+p "SUCCESS"
 
 # url = "https://www.nicolas.com/fr/Vins/Baron-De-Lestac-Signature-2018/p/485644.html"
 # url = "https://www.nicolas.com/fr/Vins/M-de-Magnol-Rouge-2017/p/479561.html"
