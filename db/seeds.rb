@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
+require 'ferrum'
 
 puts "Destroy assemblages"
 Assemblage.destroy_all
@@ -33,8 +34,16 @@ base_url = "https://www.nicolas.com/fr/"
 base_html_doc = Nokogiri::HTML(open(base_url).read)
 base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
   p wine_url = "https://www.nicolas.com#{url.attribute('href').value}"
-
-  bx_doc = Nokogiri::HTML(open(wine_url).read)
+  browser = Ferrum::Browser.new()
+  browser.goto wine_url
+  unless browser.at_css("a.ns-LoadMore-btn").nil?
+    while browser.evaluate("document.querySelector('a.ns-LoadMore-btn').getAttribute('style')").nil?
+      browser.evaluate("document.querySelector('a.ns-LoadMore-btn').click()")
+      # p browser.css('a[href]').find { |link| link.text == 'Afficher plus de produits' }.click
+    end
+  end
+  # bx_doc = Nokogiri::HTML(open(wine_url).read)
+  bx_doc = Nokogiri.parse(browser.body)
   bx_doc.search('.ns-Product a.ns-Button').each do |element|
     bottle_url = "https://www.nicolas.com/#{element.attribute('href').value}"
 
@@ -47,7 +56,11 @@ base_html_doc.search('.ns-LayerMenu-link').first(10).each do |url|
       p bottle_name = bottle_full_name[0..(bottle_full_name.length - 5)].strip
       p millesime = bottle_full_name[-4..-1].to_i
 
-      if millesime < 1000 || bottle_name == "CHINON ROSE JM RAFFAULT" || bottle_name == "Maison Castel Grande Réserve Pinot Noir Rosé" || bottle_name == "AROMES ROSé" || bottle_name == "Sylvaner Collection Privée Kuehn" || bottle_name == "SANCERRE ROSE" || bottle_name == "Château Bellevue La Forêt Rosé"
+      reject_bottle = ["CHINON ROSE JM RAFFAULT", "Maison Castel Grande Réserve Pinot Noir Rosé", "AROMES ROSé",
+                       "Sylvaner Collection Privée Kuehn", "SANCERRE ROSE", "Château Bellevue La Forêt Rosé", "1/2 CHÂTEAU BEL AIR",
+                       "Château Haut De La Bécade", "Le Loup dans la Bergerie", "Le Masoulier", "MAS DE DAUMAS GASSAC"]
+
+      if millesime < 1000 || reject_bottle.include?(bottle_name)
         p 'NON VALID'
       else
 
