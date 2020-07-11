@@ -41,11 +41,11 @@
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
 
-    <% if current_page?('/')%>
+<!--     <% if current_page?('/')%>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render 'shared/minimal_navbar' %>
-    <% end %>
+    <% end %> -->
 
     <%= render 'shared/flashes' %>
     <div <% unless current_page?('/')%> class="custom-container"<% else %>class="custom-container-home"<% end %>>
