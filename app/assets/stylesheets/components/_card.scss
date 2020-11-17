@@ -4,8 +4,8 @@
   display: flex;
   background-color: white;
   height: 193px;
-  // box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
-  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.40);
+  box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
+  // box-shadow: 8px 8px 22px -5px rgba(0,0,0,.40);
   margin: 50px auto;
   padding-right: 10px;
   padding-left: 100px;
@@ -79,8 +79,8 @@
   display: flex;
   background-color: $light-gray;
   height: 200px;
-  // box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
-  box-shadow: 8px 8px 22px -5px rgba(0,0,0,.40);
+  box-shadow: 17px 22px 14px -37px rgba(224,224,224,1);
+  // box-shadow: 8px 8px 22px -5px rgba(0,0,0,.40);
   margin: 50px auto;
   margin-right: -5px;
   padding-right: 10px;
@@ -350,8 +350,8 @@
 
 .liked-history-card {
   grid-area: 2 / 1 / 4 / 2;
-  // background-color: $card-like;
-  background-color: $card-like-demo;
+  background-color: $card-like;
+  // background-color: $card-like-demo;
   height: 230px;
   width: 150px;
 }
@@ -385,8 +385,8 @@
 
 .unliked-history-card {
   grid-area: 2 / 1 / 4 / 2;
-  // background-color: $card-unlike;
-  background-color: $card-unlike-demo;
+  background-color: $card-unlike;
+  // background-color: $card-unlike-demo;
   height: 230px;
   width: 150px;
 }
