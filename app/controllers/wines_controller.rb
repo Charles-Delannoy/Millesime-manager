@@ -1,4 +1,5 @@
 class WinesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @cave = Cave.find(params[:cave_id]) if params[:cave_id].present?
